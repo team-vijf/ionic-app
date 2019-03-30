@@ -1,6 +1,8 @@
-{"buildings":
+{
+    "buildings":
     [
     {
+        "Id" : 1,
         "Name" : "Heidelberglaan 15",
         "Floors": [
             {
@@ -59,6 +61,7 @@
         ]
     },
     {
+        "Id" : 2,
         "Name":"Padualaan 101",
         "Floors": [
             {

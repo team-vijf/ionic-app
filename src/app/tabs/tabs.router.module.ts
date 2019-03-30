@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { TabsPage } from './tabs.page';
 import { BuildingResolverService } from '../resolver/building-resolver-service';
+import { BuildingComponent } from '../content/building/building.component';
 
 const routes: Routes = [
   {
@@ -9,7 +10,7 @@ const routes: Routes = [
     component: TabsPage,
     children: [
       {
-        path: 'Home',
+        path: 'home',
         children: [
           {
             path: '',
@@ -18,11 +19,16 @@ const routes: Routes = [
         ]
       },
       {
-        path: 'Buildings',
+        path: 'buildings',
+        resolve: {buildings: BuildingResolverService},
         children: [
           {
             path: '',
-            resolve: {buildings: BuildingResolverService},
+            loadChildren: '../tab2/tab2.module#Tab2PageModule'
+          },
+          {
+            path: ':buildingId',
+            component: BuildingComponent,
             loadChildren: '../tab2/tab2.module#Tab2PageModule'
           }
         ]
@@ -45,7 +51,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: '/app/Home',
+    redirectTo: '/app/home',
     pathMatch: 'full'
   }
 ];
