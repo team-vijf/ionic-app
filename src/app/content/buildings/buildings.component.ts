@@ -10,6 +10,7 @@ import { Building } from 'src/app/models/building.model';
 export class BuildingsComponent implements OnInit {
 
   buildings: Building[];
+
   constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {

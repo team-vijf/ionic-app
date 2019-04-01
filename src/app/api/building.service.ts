@@ -14,7 +14,7 @@ export class BuildingService {
   constructor(private httpClient: HttpClient) {
   }
 
-  getBuildings(): Observable<Building[]>{
+  getBuildings(): Observable<Building[]> {
       return this.httpClient.get<Building[]>(this.url + "/buildings");
   }
 

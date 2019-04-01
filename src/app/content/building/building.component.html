@@ -1,3 +1,12 @@
-<p>
-  building works!
-</p>
+<ion-card>
+    <ion-list>
+    <ion-item>
+      <ion-label class="label-link">{{building.Name}}</ion-label>
+    </ion-item>
+      <ion-list>
+        <ion-item *ngFor="let floor of building.Floors">
+            <ion-label class="label-link">{{floor.Floornumber === 0 ? "Begane Grond" : getOrdinalNumberSuffix(floor.Floornumber)}}</ion-label>
+        </ion-item>
+      </ion-list>
+  </ion-list>
+</ion-card>
