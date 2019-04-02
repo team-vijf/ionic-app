@@ -14,7 +14,7 @@ export class BuildingComponent implements OnInit {
   constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
-    const buildings = this.route.snapshot.data['buildings'];
+    const buildings = this.route.parent.snapshot.data['buildings'];
     this.route.params.subscribe((params) => {
       for (const b of buildings) {
         if (b.Id === +params.buildingId) {

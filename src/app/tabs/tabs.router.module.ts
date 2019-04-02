@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { TabsPage } from './tabs.page';
 import { BuildingResolverService } from '../resolver/building-resolver-service';
+import { Tab2Page } from '../tab2/tab2.page';
 
 const routes: Routes = [
   {
@@ -22,6 +23,7 @@ const routes: Routes = [
         children: [
           {
             path: '',
+            component: Tab2Page,
             resolve: {buildings: BuildingResolverService},
             loadChildren: '../tab2/tab2.module#Tab2PageModule'
           }

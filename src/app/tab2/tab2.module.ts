@@ -9,7 +9,7 @@ import { BuildingsComponent } from '../content/buildings/buildings.component';
 export const tab2Routes: Routes = [
   {
     path: '',
-    component: Tab2Page,
+    component: BuildingsComponent,
   },
   {
     path: ':buildingId',
@@ -25,7 +25,6 @@ export const tab2Routes: Routes = [
     RouterModule.forChild(tab2Routes)
   ],
   declarations: [
-    Tab2Page,
     BuildingsComponent,
     BuildingComponent
     ]
