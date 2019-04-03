@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Building } from 'src/app/models/building.model';
 
 @Component({
@@ -11,10 +11,13 @@ export class BuildingsComponent implements OnInit {
 
   buildings: Building[];
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute, private router: Router) {
+    this.buildings = this.route.snapshot.data['buildings'];
+   }
 
   ngOnInit() {
-    this.buildings = this.route.snapshot.data['buildings'];
   }
-
+  public onClick(id) {
+    this.router.navigate(["app", "buildings", id]);
+  }
 }

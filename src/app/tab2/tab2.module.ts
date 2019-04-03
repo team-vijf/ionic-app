@@ -3,9 +3,10 @@ import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { Tab2Page } from './tab2.page';
 import { BuildingComponent } from '../content/building/building.component';
 import { BuildingsComponent } from '../content/buildings/buildings.component';
+import { FloorComponent } from '../content/floor/floor.component';
+import { OrdinalNumberSuffixPipe } from '../content/pipes/ordinal-number-suffix.pipe';
 export const tab2Routes: Routes = [
   {
     path: '',
@@ -14,6 +15,10 @@ export const tab2Routes: Routes = [
   {
     path: ':buildingId',
     component: BuildingComponent
+  },
+  {
+    path: ':buildingId/:floorId',
+    component: FloorComponent
   }
 ];
 @NgModule({
@@ -26,7 +31,9 @@ export const tab2Routes: Routes = [
   ],
   declarations: [
     BuildingsComponent,
-    BuildingComponent
+    BuildingComponent,
+    FloorComponent,
+    OrdinalNumberSuffixPipe
     ]
 })
 export class Tab2PageModule {}

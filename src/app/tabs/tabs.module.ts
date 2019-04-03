@@ -7,6 +7,7 @@ import { TabsPageRoutingModule } from './tabs.router.module';
 
 import { TabsPage } from './tabs.page';
 import { Tab2Page } from '../tab2/tab2.page';
+import { BackButtonComponent } from '../content/general/back/back-button/back-button.component';
 
 @NgModule({
   imports: [
@@ -17,7 +18,8 @@ import { Tab2Page } from '../tab2/tab2.page';
   ],
   declarations: [
     TabsPage,
-    Tab2Page
+    Tab2Page,
+    BackButtonComponent
   ]
 })
 export class TabsPageModule {}

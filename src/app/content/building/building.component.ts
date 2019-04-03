@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Building } from 'src/app/models/building.model';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { BuildingService } from 'src/app/api/building.service';
 
 @Component({
   selector: 'app-building',
@@ -11,20 +12,31 @@ export class BuildingComponent implements OnInit {
 
   building: Building;
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute,
+    private buildingService: BuildingService,
+    private router: Router) { }
 
   ngOnInit() {
-    const buildings = this.route.parent.snapshot.data['buildings'];
+    const buildings = this.buildingService.buildings;
     this.route.params.subscribe((params) => {
-      for (const b of buildings) {
-        if (b.Id === +params.buildingId) {
-          this.building = b;
+      const buildingId = params.buildingId;
+      if (!buildings) {
+        this.buildingService.getBuildingById(buildingId).subscribe((building) => {
+          this.building = building;
+          this.buildingService.building = building;
+        });
+      } else {
+        for (const building of buildings) {
+          if (building.id === params.buildingId) {
+            this.building = building;
+            this.buildingService.building = building;
+          }
         }
       }
-    });
-  }
+      });
+    }
 
-  getOrdinalNumberSuffix(number: Number): String {
-    return "Verdieping " + number;
+  public onClick(buildingId, floorId) {
+    this.router.navigate(["app", "buildings", buildingId, floorId]);
   }
 }

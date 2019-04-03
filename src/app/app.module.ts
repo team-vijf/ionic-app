@@ -11,6 +11,7 @@ import { AppComponent } from './app.component';
 import { BuildingService } from './api/building.service';
 import { BuildingResolverService } from './resolver/building-resolver-service';
 import { HttpClientModule } from '@angular/common/http';
+import { OrdinalNumberSuffixPipe } from './content/pipes/ordinal-number-suffix.pipe';
 
 @NgModule({
   declarations: [

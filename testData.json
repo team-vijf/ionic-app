@@ -2,96 +2,110 @@
     "buildings":
     [
     {
-        "Id" : 1,
-        "Name" : "Heidelberglaan 15",
-        "Floors": [
+        "id" : "1",
+        "name" : "HL15",
+        "streetName" : "Heidelberglaan",
+        "buildingNumber" : "15",
+        "floors": [
             {
-                "Floornumber": 0,
-                "Classrooms":[
-                    {"Classcode":"0.063"},
-                    {"Classcode":"0.019"}
+                "floorNumber": 0,
+                "id": "0",
+                "classrooms":[
+                    {"classcode":"0.063"},
+                    {"classcode":"0.019"}
                 ]
             },
             {
-                "Floornumber": 1,
-                "Classrooms":[
-                    {"Classcode":"1.034"},
-                    {"Classcode":"1.012"},
-                    {"Classcode":"1.054"},
-                    {"Classcode":"1.076"}
+                "floorNumber": 1,
+                "id": "1",
+                "classrooms":[
+                    {"classcode":"1.034"},
+                    {"classcode":"1.012"},
+                    {"classcode":"1.054"},
+                    {"classcode":"1.076"}
                 ]
             },
             {
-                "Floornumber": 2,
-                "Classrooms":[
-                    {"Classcode":"2.045"},
-                    {"Classcode":"2.078"}
+                "floorNumber": 2,
+                "id": "2",
+                "classrooms":[
+                    {"classcode":"2.045"},
+                    {"classcode":"2.078"}
                 ]
             },
             {
-                "Floornumber": 3,
-                "Classrooms":[
-                    {"Classcode":"3.023"},
-                    {"Classcode":"3.064"},
-                    {"Classcode":"3.098"}
+                "floorNumber": 3,
+                "id": "3",
+                "classrooms":[
+                    {"classcode":"3.023"},
+                    {"classcode":"3.064"},
+                    {"classcode":"3.098"}
                 ]
             },
             {
-                "Floornumber": 4,
-                "Classrooms":[
-                    {"Classcode":"4.062"},
-                    {"Classcode":"4.034"},
-                    {"Classcode":"4.087"}
+                "floorNumber": 4,
+                "id": "4",
+                "classrooms":[
+                    {"classcode":"4.062"},
+                    {"classcode":"4.034"},
+                    {"classcode":"4.087"}
                 ]
             },
             {
-                "Floornumber": 5,
-                "Classrooms":[
-                    {"Classcode":"5.053"},
-                    {"Classcode":"5.017"}
+                "floorNumber": 5,
+                "id": "5",
+                "classrooms":[
+                    {"classcode":"5.053"},
+                    {"classcode":"5.017"}
                 ]
             },
             {
-                "Floornumber": 6,
-                "Classrooms":[
-                    {"Classcode":"6.054"},
-                    {"Classcode":"6.082"}
+                "floorNumber": 6,
+                "id": "6",
+                "classrooms":[
+                    {"classcode":"6.054"},
+                    {"classcode":"6.082"}
                 ]
             }
         ]
     },
     {
-        "Id" : 2,
-        "Name":"Padualaan 101",
-        "Floors": [
+        "id" : "2",
+        "name" : "PL101",
+        "streetName":"Padualaan",
+        "buildingNumber": "101",
+        "floors": [
             {
-                "Floornumber": 0,
-                "Classrooms":[]
+                "floorNumber": 0,
+                "id": "0",
+                "classrooms":[]
             },
             {
-                "Floornumber": 1,
-                "Classrooms" :[
-                    {"Classcode":"1.223"},
-                    {"Classcode":"1.443"},
-                    {"Classcode":"1.123"},
-                    {"Classcode":"1.656"},
-                    {"Classcode":"1.542"},
-                    {"Classcode":"1.763"},
-                    {"Classcode":"1.986"},
-                    {"Classcode":"1.164"}
+                "floorNumber": 1,
+                "id": "1",
+                "classrooms" :[
+                    {"classcode":"1.223"},
+                    {"classcode":"1.443"},
+                    {"classcode":"1.123"},
+                    {"classcode":"1.656"},
+                    {"classcode":"1.542"},
+                    {"classcode":"1.763"},
+                    {"classcode":"1.986"},
+                    {"classcode":"1.164"}
                 ]
             },
             {
-                "Floornumber": 2,
-                "Classrooms" :[
-                    {"Classcode":"2.223"},
-                    {"Classcode":"2.443"},
-                    {"Classcode":"2.123"},
-                    {"Classcode":"2.656"},
-                    {"Classcode":"2.542"},
-                    {"Classcode":"2.763"},
-                    {"Classcode":"2.986"},
-                    {"Classcode":"2.164"}
+                "floorNumber": 2,
+                "id": "2",
+                "classrooms" :[
+                    {"classcode":"2.223"},
+                    {"classcode":"2.443"},
+                    {"classcode":"2.123"},
+                    {"classcode":"2.656"},
+                    {"classcode":"2.542"},
+                    {"classcode":"2.763"},
+                    {"classcode":"2.986"},
+                    {"classcode":"2.164"}
 
                 ]
             }

@@ -10,7 +10,7 @@ const routes: Routes = [
     component: TabsPage,
     children: [
       {
-        path: 'Home',
+        path: 'home',
         children: [
           {
             path: '',
@@ -19,7 +19,7 @@ const routes: Routes = [
         ]
       },
       {
-        path: 'Buildings',
+        path: 'buildings',
         children: [
           {
             path: '',
@@ -47,7 +47,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: '/app/Home',
+    redirectTo: '/app/home',
     pathMatch: 'full'
   }
 ];
