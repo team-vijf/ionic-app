@@ -13,7 +13,7 @@ export class OrdinalNumberSuffixPipe implements PipeTransform {
         break;
       }
       case 2: {
-        suffix = "dee";
+        suffix = "de";
         break;
       }
     }

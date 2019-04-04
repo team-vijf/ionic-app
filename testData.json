@@ -1,4 +1,141 @@
 {
+    "classroom":[
+        {
+            "id": "HL15-0.063",
+            "free" : true
+        },
+        {
+            "id":"HL15-0.019",
+            "free" : false
+        },
+        {
+            "id":"HL15-1.034",
+            "free" : false
+        },
+        {
+            "id":"HL15-1.012",
+            "free" : true},
+        {
+            "id":"HL15-1.054",
+            "free" : false
+        },
+        {
+            "id":"HL15-1.076",
+            "free" : true
+        },
+        {
+            "id":"HL15-2.045", 
+            "free" : false
+        },
+        {
+            "id":"HL15-2.078", 
+            "free" : true}
+            ,
+        {
+            "id":"HL15-3.023", 
+            "free" : false
+        },
+        {
+            "id":"HL15-3.064", 
+            "free" : true}
+            ,
+        {
+            "id":"HL15-3.098", 
+            "free" : false
+        },
+        {
+            "id":"HL15-4.062", 
+            "free" : false
+        },
+        {
+            "id":"HL15-4.034", 
+            "free" : false
+        },
+        {
+            "id":"HL15-4.087", 
+            "free" : false
+        },
+        {
+            "id":"HL15-5.053", 
+            "free" : true}
+            ,
+        {
+            "id":"HL15-5.017", 
+            "free" : false
+        },
+        {
+            "id":"HL15-6.054", 
+            "free" : false
+        },
+        {
+            "id":"HL15-6.082", 
+            "free" : false
+        },
+        {
+            "id":"PL101-1.223",
+             "free" : false
+            },
+        {
+            "id":"PL101-1.443",
+             "free" : false
+            },
+        {
+            "id":"PL101-1.123",
+             "free" : true
+            },
+        {
+            "id":"PL101-1.656",
+             "free" : true
+            },
+        {
+            "id":"PL101-1.542",
+             "free" : false
+            },
+        {
+            "id":"PL101-1.763",
+             "free" : true
+            },
+        {
+            "id":"PL101-1.986",
+             "free" : false
+            },
+        {
+            "id":"PL101-1.164",
+             "free" : true
+            },
+        {
+            "id":"PL101-2.223",
+             "free" : false
+            },
+        {
+            "id":"PL101-2.443",
+             "free" : false
+            },
+        {
+            "id":"PL101-2.123",
+             "free" : true
+            },
+        {
+            "id":"PL101-2.656",
+             "free" : false
+            },
+        {
+            "id":"PL101-2.542",
+             "free" : false
+            },
+        {
+            "id":"PL101-2.763",
+             "free" : true
+            },
+        {
+            "id":"PL101-2.986",
+            "free" : false
+        },
+        {
+            "id":"PL101-2.164",
+            "free" : false
+        }
+    ],
     "buildings":
     [
     {
@@ -11,60 +148,60 @@
                 "floorNumber": 0,
                 "id": "0",
                 "classrooms":[
-                    {"classcode":"0.063"},
-                    {"classcode":"0.019"}
+                    {"classcode":"HL15-0.063", "free" : true},
+                    {"classcode":"HL15-0.019", "free" : false}
                 ]
             },
             {
                 "floorNumber": 1,
                 "id": "1",
                 "classrooms":[
-                    {"classcode":"1.034"},
-                    {"classcode":"1.012"},
-                    {"classcode":"1.054"},
-                    {"classcode":"1.076"}
+                    {"classcode":"HL15-1.034", "free" : false},
+                    {"classcode":"HL15-1.012", "free" : true},
+                    {"classcode":"HL15-1.054", "free" : false},
+                    {"classcode":"HL15-1.076", "free" : true}
                 ]
             },
             {
                 "floorNumber": 2,
                 "id": "2",
                 "classrooms":[
-                    {"classcode":"2.045"},
-                    {"classcode":"2.078"}
+                    {"classcode":"HL15-2.045", "free" : false},
+                    {"classcode":"HL15-2.078", "free" : true}
                 ]
             },
             {
                 "floorNumber": 3,
                 "id": "3",
                 "classrooms":[
-                    {"classcode":"3.023"},
-                    {"classcode":"3.064"},
-                    {"classcode":"3.098"}
+                    {"classcode":"HL15-3.023", "free" : false},
+                    {"classcode":"HL15-3.064", "free" : true},
+                    {"classcode":"HL15-3.098", "free" : false}
                 ]
             },
             {
                 "floorNumber": 4,
                 "id": "4",
                 "classrooms":[
-                    {"classcode":"4.062"},
-                    {"classcode":"4.034"},
-                    {"classcode":"4.087"}
+                    {"classcode":"HL15-4.062", "free" : false},
+                    {"classcode":"HL15-4.034", "free" : false},
+                    {"classcode":"HL15-4.087", "free" : false}
                 ]
             },
             {
                 "floorNumber": 5,
                 "id": "5",
                 "classrooms":[
-                    {"classcode":"5.053"},
-                    {"classcode":"5.017"}
+                    {"classcode":"HL15-5.053", "free" : true},
+                    {"classcode":"HL15-5.017", "free" : false}
                 ]
             },
             {
                 "floorNumber": 6,
                 "id": "6",
                 "classrooms":[
-                    {"classcode":"6.054"},
-                    {"classcode":"6.082"}
+                    {"classcode":"HL15-6.054", "free" : false},
+                    {"classcode":"HL15-6.082", "free" : false}
                 ]
             }
         ]
@@ -84,28 +221,28 @@
                 "floorNumber": 1,
                 "id": "1",
                 "classrooms" :[
-                    {"classcode":"1.223"},
-                    {"classcode":"1.443"},
-                    {"classcode":"1.123"},
-                    {"classcode":"1.656"},
-                    {"classcode":"1.542"},
-                    {"classcode":"1.763"},
-                    {"classcode":"1.986"},
-                    {"classcode":"1.164"}
+                    {"classcode":"PL101-1.223", "free" : false},
+                    {"classcode":"PL101-1.443", "free" : false},
+                    {"classcode":"PL101-1.123", "free" : true},
+                    {"classcode":"PL101-1.656", "free" : true},
+                    {"classcode":"PL101-1.542", "free" : false},
+                    {"classcode":"PL101-1.763", "free" : true},
+                    {"classcode":"PL101-1.986", "free" : false},
+                    {"classcode":"PL101-1.164", "free" : true}
                 ]
             },
             {
                 "floorNumber": 2,
                 "id": "2",
                 "classrooms" :[
-                    {"classcode":"2.223"},
-                    {"classcode":"2.443"},
-                    {"classcode":"2.123"},
-                    {"classcode":"2.656"},
-                    {"classcode":"2.542"},
-                    {"classcode":"2.763"},
-                    {"classcode":"2.986"},
-                    {"classcode":"2.164"}
+                    {"classcode":"PL101-2.223", "free" : false},
+                    {"classcode":"PL101-2.443", "free" : false},
+                    {"classcode":"PL101-2.123", "free" : true},
+                    {"classcode":"PL101-2.656", "free" : false},
+                    {"classcode":"PL101-2.542", "free" : false},
+                    {"classcode":"PL101-2.763", "free" : true},
+                    {"classcode":"PL101-2.986", "free" : false},
+                    {"classcode":"PL101-2.164", "free" : false}
 
                 ]
             }

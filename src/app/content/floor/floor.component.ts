@@ -12,6 +12,7 @@ import { Building } from 'src/app/models/building.model';
 export class FloorComponent implements OnInit {
 
   floor: Floor;
+  building: Building;
   dataLoaded: Promise<boolean> = Promise.resolve(false);
 
   constructor(private route: ActivatedRoute, private buildingService: BuildingService) {
@@ -19,27 +20,30 @@ export class FloorComponent implements OnInit {
   }
 
   ngOnInit() {
-    let building = this.buildingService.building;
+    this.building = this.buildingService.building;
     this.route.params.subscribe((params) => {
     const buildingId = params.buildingId;
     const floorId = params.floorId;
-    if (!building || building.id !== buildingId) {
+    if (!this.building || this.building.id !== buildingId) {
       this.buildingService.getBuildingById(buildingId).subscribe((_building) => {
         this.buildingService.building = _building;
-        building = _building;
-        this.setFloorByBuilding(building, floorId);
+        this.building = _building;
+        this.setFloorByBuilding(floorId);
       });
     } else {
-      this.setFloorByBuilding(building, floorId);
+      this.setFloorByBuilding(floorId);
     }
   });
 }
-setFloorByBuilding(building: Building, floorId) {
-  building.floors.forEach(floor => {
+setFloorByBuilding(floorId) {
+  this.building.floors.forEach(floor => {
     if (floor.id === floorId) {
       this.floor = floor;
       this.dataLoaded = Promise.resolve(true);
     }
   });
+}
+getBuildingAdress() {
+  return this.building.streetName + " " + this.building.buildingNumber;
 }
 }
