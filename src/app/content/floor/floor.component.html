@@ -1,7 +1,7 @@
 <ion-card *ngIf="dataLoaded | async">
         <ion-list>
         <ion-list-header>
-            <ion-label class="label-link">{{floor.floorNumber === 0 ? "Begane Grond" : floor.floorNumber | ordinalNumberSuffix}} Verdieping</ion-label>
+            <ion-label class="label-link">{{floor.floorNumber === 0 ? "Begane Grond" : (floor.floorNumber | ordinalNumberSuffix) + " verdieping"}}</ion-label>
         </ion-list-header>
         <ion-item class="ion-activatable" *ngFor="let classroom of floor.classrooms">
             <ion-ripple-effect></ion-ripple-effect>

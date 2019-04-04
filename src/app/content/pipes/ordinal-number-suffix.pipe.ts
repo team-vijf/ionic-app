@@ -7,8 +7,15 @@ export class OrdinalNumberSuffixPipe implements PipeTransform {
 
   transform(value: Number, args?: any): String {
     let suffix = "e";
-    if (value === 1) {
-      suffix = "ste";
+    switch (value) {
+      case 1: {
+        suffix = "ste";
+        break;
+      }
+      case 2: {
+        suffix = "dee";
+        break;
+      }
     }
     return value + suffix;
   }

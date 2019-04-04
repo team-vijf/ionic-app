@@ -13,6 +13,7 @@ export class FloorComponent implements OnInit {
 
   floor: Floor;
   dataLoaded: Promise<boolean> = Promise.resolve(false);
+
   constructor(private route: ActivatedRoute, private buildingService: BuildingService) {
 
   }
