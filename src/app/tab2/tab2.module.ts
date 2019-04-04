@@ -19,7 +19,11 @@ export const tab2Routes: Routes = [
   {
     path: ':buildingId/:floorId',
     component: FloorComponent
-  }
+  },
+  // {
+  //   path: ':buildingId/:floorId/:classcode',
+  //   loadChildren: '../classroom/classroom.module#ClassroomPageModule'
+  // }
 ];
 @NgModule({
   exports: [RouterModule],

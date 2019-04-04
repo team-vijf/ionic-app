@@ -1,11 +1,20 @@
-<ion-card *ngIf="dataLoaded | async">
-        <ion-list>
-        <ion-list-header>
-            <ion-label class="label-link">{{floor.floorNumber === 0 ? "Begane grond" : (floor.floorNumber | ordinalNumberSuffix) + " verdieping"}} van {{getBuildingAdress()}}</ion-label>
-        </ion-list-header>
-        <ion-item class="ion-activatable" *ngFor="let classroom of floor.classrooms">
-            <ion-ripple-effect></ion-ripple-effect>
-            <ion-label class="label-link">{{classroom.classcode}}</ion-label>
-        </ion-item>
-      </ion-list>
-    </ion-card>
+<ion-content>
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content
+          pullingIcon="arrow-dropdown"
+          pullingText="Pull to refresh">
+        </ion-refresher-content>
+        </ion-refresher>
+  <ion-card *ngIf="dataLoaded | async">
+    <ion-list >
+      <ion-list-header>
+        <ion-label class="label-link">
+          {{floor.floorNumber === 0 ? "Begane grond" : (floor.floorNumber | ordinalNumberSuffix) + " verdieping"}} van {{getBuildingAdress()}}</ion-label>
+      </ion-list-header>
+      <ion-item class="ion-activatable" *ngFor="let classroom of floor.classrooms" (click)="onClick(classroom.classcode)">
+        <ion-ripple-effect></ion-ripple-effect>
+        <ion-label class="label-link">{{classroom.classcode}}</ion-label> <ion-label  [class.free]="classroom.free" [class.occupied]="!classroom.free"> {{classroom.free ? "vrij" : "bezet"}} </ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-card>
+</ion-content>

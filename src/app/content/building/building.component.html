@@ -1,11 +1,16 @@
-<ion-card>
-    <ion-list>
-    <ion-list-header>
-        <ion-label class="label-link">{{building.streetName + " " + building.buildingNumber}}</ion-label>
-    </ion-list-header>
-    <ion-item class="ion-activatable" *ngFor="let floor of building.floors" (click)="onClick(building.id,floor.id)">
-        <ion-ripple-effect></ion-ripple-effect>
-        <ion-label class="label-link">{{floor.floorNumber === 0 ? "Begane Grond" : (floor.floorNumber | ordinalNumberSuffix) + " verdieping"}}</ion-label>
-    </ion-item>
-  </ion-list>
-</ion-card>
+<ion-content>
+    <ion-card>
+        <ion-list>
+            <ion-list-header>
+                <ion-label class="label-link">{{building.streetName + " " + building.buildingNumber}}</ion-label>
+            </ion-list-header>
+            <ion-item class="ion-activatable" *ngFor="let floor of building.floors"
+                (click)="onClick(building.id,floor.id)">
+                <ion-ripple-effect></ion-ripple-effect>
+                <ion-label class="label-link">
+                    {{floor.floorNumber === 0 ? "Begane Grond" : (floor.floorNumber | ordinalNumberSuffix) + " verdieping"}}
+                </ion-label>
+            </ion-item>
+        </ion-list>
+    </ion-card>
+</ion-content>

@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { TabsPage } from './tabs.page';
 import { BuildingResolverService } from '../resolver/building-resolver-service';
 import { Tab2Page } from '../tab2/tab2.page';
+import { Tab3Page } from '../tab3/tab3.page';
 
 const routes: Routes = [
   {
@@ -30,17 +31,18 @@ const routes: Routes = [
         ]
       },
       {
-        path: 'tab3',
+        path: 'settings',
         children: [
           {
             path: '',
+            component: Tab3Page,
             loadChildren: '../tab3/tab3.module#Tab3PageModule'
           }
         ]
       },
       {
         path: '',
-        redirectTo: '/tabs/tab1',
+        redirectTo: '/app/home',
         pathMatch: 'full'
       }
     ]

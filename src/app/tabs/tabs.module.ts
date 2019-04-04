@@ -8,6 +8,7 @@ import { TabsPageRoutingModule } from './tabs.router.module';
 import { TabsPage } from './tabs.page';
 import { Tab2Page } from '../tab2/tab2.page';
 import { BackButtonComponent } from '../content/general/back/back-button/back-button.component';
+import { Tab3Page } from '../tab3/tab3.page';
 
 @NgModule({
   imports: [
@@ -19,6 +20,7 @@ import { BackButtonComponent } from '../content/general/back/back-button/back-bu
   declarations: [
     TabsPage,
     Tab2Page,
+    Tab3Page,
     BackButtonComponent
   ]
 })

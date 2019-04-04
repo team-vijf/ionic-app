@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Floor } from 'src/app/models/floor.model';
 import { BuildingService } from 'src/app/api/building.service';
 import { Building } from 'src/app/models/building.model';
+import { FloorService } from 'src/app/api/floor-service';
 
 @Component({
   selector: 'app-floor',
@@ -11,12 +12,16 @@ import { Building } from 'src/app/models/building.model';
 })
 export class FloorComponent implements OnInit {
 
+  @ViewChild("list") list: ElementRef;
   floor: Floor;
   building: Building;
   dataLoaded: Promise<boolean> = Promise.resolve(false);
 
-  constructor(private route: ActivatedRoute, private buildingService: BuildingService) {
-
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private buildingService: BuildingService,
+    private floorService: FloorService) {
   }
 
   ngOnInit() {
@@ -45,5 +50,17 @@ setFloorByBuilding(floorId) {
 }
 getBuildingAdress() {
   return this.building.streetName + " " + this.building.buildingNumber;
+}
+onClick(classcode: string) {
+  this.router.navigate(["app", "buildings", this.building.id, this.floor.id, classcode]);
+}
+doRefresh(event) {
+  this.floorService.updateFloor(this.floor.id).subscribe((data) => {
+    // dit kan later weg om de app te "optimizen" :)
+    setTimeout(() => {
+      this.floor = data;
+      event.target.complete();
+    }, 1500);
+  });
 }
 }

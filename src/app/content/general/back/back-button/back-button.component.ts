@@ -14,13 +14,32 @@ export class BackButtonComponent implements OnInit {
     "/app/home",
     "/app/settings"
   ];
+  public get basePage() {
+    if (this.basePages.includes(this.router.url)) {
+      return true;
+    }
+    return false;
+  }
   constructor(private location: Location, public router: Router) { }
 
   ngOnInit() {
   }
 
+  public getTitle() {
+    switch (this.router.url) {
+      case (this.basePages[0]): {
+        return "Gebouwen";
+      }
+      case (this.basePages[1]): {
+        return "Home";
+      }
+      case (this.basePages[2]): {
+        return "Instellingen";
+      }
+    }
+  }
   public goBack() {
-    if (!this.basePages.includes(this.router.url)) {
+    if (!this.basePage) {
       this.location.back();
     }
   }
