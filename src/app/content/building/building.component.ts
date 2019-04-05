@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Building } from 'src/app/models/building.model';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BuildingService } from 'src/app/api/building.service';
+import { Floor } from 'src/app/models/floor.model';
 
 @Component({
   selector: 'app-building',
@@ -23,18 +24,21 @@ export class BuildingComponent implements OnInit {
     if (!buildings) {
       this.buildingService.getBuildingById(buildingId).subscribe((building) => {
         this.building = building;
-        this.buildingService.building = building;
       });
     } else {
       for (const building of buildings) {
         if (building.id === params.buildingId) {
           this.building = building;
-          this.buildingService.building = building;
         }
       }
     }
   }
-
+  public getAmountFreeClassrooms(floor: Floor) {
+    const freeClasses = floor.classrooms.filter((classroom) => {
+      return classroom.free;
+    });
+    return `er zijn nog ${freeClasses.length} klassen vrij`;
+  }
   public onClick(buildingId, floorId) {
     this.router.navigate(["app", "buildings", buildingId, floorId]);
   }

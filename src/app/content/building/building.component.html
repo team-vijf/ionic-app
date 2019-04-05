@@ -10,6 +10,7 @@
                 <ion-label class="label-link">
                     {{floor.floorNumber === 0 ? "Begane Grond" : (floor.floorNumber | ordinalNumberSuffix) + " verdieping"}}
                 </ion-label>
+                <ion-label  > {{getAmountFreeClassrooms(floor) }} </ion-label>
             </ion-item>
         </ion-list>
     </ion-card>

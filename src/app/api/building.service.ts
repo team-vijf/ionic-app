@@ -8,7 +8,6 @@ import { CoreApiService } from './core-api';
 })
 export class BuildingService {
   public buildings: Building[];
-  public building: Building;
 
   constructor(private api: CoreApiService) {
   }

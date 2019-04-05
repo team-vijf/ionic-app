@@ -25,13 +25,15 @@ export class FloorComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.building = this.buildingService.building;
+
     this.route.params.subscribe((params) => {
     const buildingId = params.buildingId;
     const floorId = params.floorId;
-    if (!this.building || this.building.id !== buildingId) {
+    this.building = this.buildingService.buildings.find((building) => {
+      return building.id === params.buildingId;
+    });
+    if (!this.building) {
       this.buildingService.getBuildingById(buildingId).subscribe((_building) => {
-        this.buildingService.building = _building;
         this.building = _building;
         this.setFloorByBuilding(floorId);
       });
@@ -41,12 +43,12 @@ export class FloorComponent implements OnInit {
   });
 }
 setFloorByBuilding(floorId) {
-  this.building.floors.forEach(floor => {
-    if (floor.id === floorId) {
-      this.floor = floor;
-      this.dataLoaded = Promise.resolve(true);
-    }
+  this.floor = this.building.floors.find((floor) => {
+    return floor.id === floorId;
   });
+  if (this.floor) {
+    this.dataLoaded = Promise.resolve(true);
+  }
 }
 getBuildingAdress() {
   return this.building.streetName + " " + this.building.buildingNumber;
@@ -58,6 +60,9 @@ doRefresh(event) {
   this.floorService.getFloor(this.floor.id).subscribe((data) => {
     // dit kan later weg om de app te "optimizen" :)
     setTimeout(() => {
+      const indexCurrentBuilding = this.buildingService.buildings.indexOf(this.building);
+      const indexCurrentFloor = this.buildingService.buildings[indexCurrentBuilding].floors.indexOf(this.floor);
+      this.buildingService.buildings[indexCurrentBuilding].floors[indexCurrentFloor] = data;
       this.floor = data;
       event.target.complete();
     }, 1500);
