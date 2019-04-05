@@ -14,9 +14,8 @@ export class FloorResolverService implements Resolve<Floor> {
     }
 
     resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Floor> {
-        const buildingId = route.paramMap.get('buildingId');
         const floorId    = route.paramMap.get('floorId');
-        return this.floorService.getFloor(buildingId, floorId).pipe(map((data) => {
+        return this.floorService.getFloor( floorId).pipe(map((data) => {
             this.floorService.floor = data;
             return this.floorService.floor;
         }), catchError(error => {

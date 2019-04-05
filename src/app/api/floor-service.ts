@@ -12,10 +12,7 @@ export class FloorService {
   constructor(private api: CoreApiService) {
   }
 
-  getFloor(buildingId: String, floorId: String): Observable<Floor> {
-      return this.api.get<Floor>(`/floor/${buildingId}/${floorId}`);
-  }
-  updateFloor(floorId): Observable<Floor> {
+  getFloor(floorId: String): Observable<Floor> {
     return this.api.get<Floor>(`floor/${floorId}`);
   }
 

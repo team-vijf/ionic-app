@@ -55,7 +55,7 @@ onClick(classcode: string) {
   this.router.navigate(["app", "buildings", this.building.id, this.floor.id, classcode]);
 }
 doRefresh(event) {
-  this.floorService.updateFloor(this.floor.id).subscribe((data) => {
+  this.floorService.getFloor(this.floor.id).subscribe((data) => {
     // dit kan later weg om de app te "optimizen" :)
     setTimeout(() => {
       this.floor = data;
