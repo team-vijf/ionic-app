@@ -4,17 +4,22 @@ import { TabsPage } from './tabs.page';
 import { BuildingResolverService } from '../resolver/building-resolver-service';
 import { Tab2Page } from '../tab2/tab2.page';
 import { Tab3Page } from '../tab3/tab3.page';
+import { Tab1Page } from '../tab1/tab1.page';
+import { ClassroomResolverService } from '../resolver/classroom-resolver-service';
+import { ClassroomPage } from '../classroom/classroom.page';
 
 const routes: Routes = [
   {
     path: 'app',
     component: TabsPage,
+    resolve: {buildings: BuildingResolverService},
     children: [
       {
         path: 'home',
         children: [
           {
             path: '',
+            component: Tab1Page,
             loadChildren: '../tab1/tab1.module#Tab1PageModule'
           }
         ]
@@ -25,7 +30,6 @@ const routes: Routes = [
           {
             path: '',
             component: Tab2Page,
-            resolve: {buildings: BuildingResolverService},
             loadChildren: '../tab2/tab2.module#Tab2PageModule'
           }
         ]
@@ -39,6 +43,12 @@ const routes: Routes = [
             loadChildren: '../tab3/tab3.module#Tab3PageModule'
           }
         ]
+      },
+      {
+        path: 'classroom/:classcode',
+        resolve: {classroom: ClassroomResolverService},
+        component: ClassroomPage,
+        loadChildren: './classroom/classroom.module#ClassroomPageModule'
       },
       {
         path: '',

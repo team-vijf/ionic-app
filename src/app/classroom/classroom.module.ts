@@ -5,15 +5,8 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
 
-import { ClassroomPage } from './classroom.page';
-// import { ClassroomResolverService } from '../resolver/classroom-resolver-service';
-
 const routes: Routes = [
-  {
-    path: '',
-    // resolve: {classroom : ClassroomResolverService},
-    component: ClassroomPage
-  }
+
 ];
 
 @NgModule({
@@ -23,6 +16,7 @@ const routes: Routes = [
     IonicModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [ClassroomPage]
+  declarations: [
+  ]
 })
 export class ClassroomPageModule {}

@@ -1,24 +1,34 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Tab One
+        <app-back-button></app-back-button>
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
     <ion-card class="welcome-card">
-      <ion-img src="/assets/shapes.svg"></ion-img>
+      <ion-img src="/assets/hu-logo-nl.svg"></ion-img>
       <ion-card-header>
-        <ion-card-subtitle>Get Started</ion-card-subtitle>
-        <ion-card-title>Welcome to Ionic</ion-card-title>
+        <ion-card-title>Ruimtebezetting</ion-card-title>
       </ion-card-header>
-      <ion-card-content>
-        
-        <p>Now that your app has been created, you'll want to start building out features and components. Check out some of the resources below for next steps.</p>
-      </ion-card-content>
     </ion-card>
-    <ion-list lines="none">
+    <ion-card>
+    <ion-card-header>
+    <p>Klik op "Gebouwen" om te zoeken naar vrije gebouwen, of zoek hier beneden direct naar een vrij lokaal in een gebouw van jouw keuze.</p>
+  </ion-card-header>
+    <ion-item>
+
+        <ion-label>Gebouw</ion-label>
+    <ion-select  [(ngModel)]="buildingId" >
+        <ion-select-option [value]="building.id" *ngFor="let building of buildings" >{{building.streetName + " " + building.buildingNumber}}</ion-select-option>
+    </ion-select>
+    </ion-item>
+    <ion-item>
+        <ion-button (click)="searchForClassrooms()">Zoeken</ion-button>
+    </ion-item>
+  </ion-card>
+    <!-- <ion-list lines="none">
       <ion-list-header>
         <ion-label>Resources</ion-label>
       </ion-list-header>
@@ -38,5 +48,5 @@
         <ion-icon slot="start" color="medium" name="color-fill"></ion-icon>
         <ion-label>Theme Your App</ion-label>
       </ion-item>
-    </ion-list>
+    </ion-list> -->
 </ion-content>

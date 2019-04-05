@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Classroom } from '../models/classroom.model';
 
 @Component({
   selector: 'app-classroom',
@@ -8,11 +9,14 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class ClassroomPage implements OnInit {
 
-  constructor(private route: ActivatedRoute, private router: Router) { }
+  classroom: Classroom;
+
+  constructor(private route: ActivatedRoute, private router: Router) {
+    this.classroom = this.route.snapshot.data["classroom"];
+  }
 
 
   ngOnInit() {
-    console.log(this.route)
   }
 
 }

@@ -9,6 +9,8 @@ import { TabsPage } from './tabs.page';
 import { Tab2Page } from '../tab2/tab2.page';
 import { BackButtonComponent } from '../content/general/back/back-button/back-button.component';
 import { Tab3Page } from '../tab3/tab3.page';
+import { Tab1Page } from '../tab1/tab1.page';
+import { ClassroomPage } from '../classroom/classroom.page';
 
 @NgModule({
   imports: [
@@ -19,8 +21,10 @@ import { Tab3Page } from '../tab3/tab3.page';
   ],
   declarations: [
     TabsPage,
+    Tab1Page,
     Tab2Page,
     Tab3Page,
+    ClassroomPage,
     BackButtonComponent
   ]
 })

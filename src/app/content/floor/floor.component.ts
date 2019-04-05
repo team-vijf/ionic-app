@@ -25,25 +25,24 @@ export class FloorComponent implements OnInit {
   }
 
   ngOnInit() {
-
-    this.route.params.subscribe((params) => {
+    const params = this.route.snapshot.params;
     const buildingId = params.buildingId;
     const floorId = params.floorId;
-    this.building = this.buildingService.buildings.find((building) => {
-      return building.id === params.buildingId;
+    let building = this.buildingService.buildings.find((_building) => {
+      return _building.id === params.buildingId;
     });
-    if (!this.building) {
+    if (!building) {
       this.buildingService.getBuildingById(buildingId).subscribe((_building) => {
-        this.building = _building;
-        this.setFloorByBuilding(floorId);
+        building = _building;
+        this.setFloorByBuilding(building, floorId);
       });
     } else {
-      this.setFloorByBuilding(floorId);
+      this.setFloorByBuilding(building, floorId);
     }
-  });
 }
-setFloorByBuilding(floorId) {
-  this.floor = this.building.floors.find((floor) => {
+setFloorByBuilding(building, floorId) {
+  this.building = building;
+  this.floor = building.floors.find((floor) => {
     return floor.id === floorId;
   });
   if (this.floor) {
@@ -54,7 +53,7 @@ getBuildingAdress() {
   return this.building.streetName + " " + this.building.buildingNumber;
 }
 onClick(classcode: string) {
-  this.router.navigate(["app", "buildings", this.building.id, this.floor.id, classcode]);
+  this.router.navigate(["app", "classroom", classcode]);
 }
 doRefresh(event) {
   this.floorService.getFloor(this.floor.id).subscribe((data) => {

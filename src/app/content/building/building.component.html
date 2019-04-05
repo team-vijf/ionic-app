@@ -10,7 +10,7 @@
                 <ion-label class="label-link">
                     {{floor.floorNumber === 0 ? "Begane Grond" : (floor.floorNumber | ordinalNumberSuffix) + " verdieping"}}
                 </ion-label>
-                <ion-label  > {{getAmountFreeClassrooms(floor) }} </ion-label>
+                <ion-label *ngIf="{count : getAmountFreeClassrooms(floor)} as freeRooms" [class.free]="freeRooms.count > 0" [class.occupied]="freeRooms.count == 0" > {{freeRooms.count === 0 ? "alles is bezet" : "Er zijn nog " + freeRooms.count + " klassen vrij" }}  </ion-label>
             </ion-item>
         </ion-list>
     </ion-card>

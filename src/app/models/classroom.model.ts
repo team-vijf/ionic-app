@@ -1,4 +1,4 @@
 export class Classroom {
-    classCode: string;
+    classcode: string;
     free: boolean;
 }
