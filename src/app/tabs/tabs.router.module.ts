@@ -46,9 +46,9 @@ const routes: Routes = [
       },
       {
         path: 'classroom/:classcode',
-        resolve: {classroom: ClassroomResolverService},
         component: ClassroomPage,
-        loadChildren: './classroom/classroom.module#ClassroomPageModule'
+        resolve: {classroom: ClassroomResolverService},
+        loadChildren: '../classroom/classroom.module#ClassroomPageModule'
       },
       {
         path: '',

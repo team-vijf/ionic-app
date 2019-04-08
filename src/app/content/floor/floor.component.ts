@@ -64,7 +64,7 @@ doRefresh(event) {
       this.buildingService.buildings[indexCurrentBuilding].floors[indexCurrentFloor] = data;
       this.floor = data;
       event.target.complete();
-    }, 1500);
+    }, 200);
   });
 }
 }

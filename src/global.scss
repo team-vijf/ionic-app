@@ -20,3 +20,22 @@
 .ion-activatable {
     cursor: pointer;
 }
+.spinner-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+}
+.wrapper {
+    width: 100%;
+    position: absolute;
+    left: 0px;
+}
+.inactive {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+.active {
+    opacity: 1;
+    cursor: default;
+}
