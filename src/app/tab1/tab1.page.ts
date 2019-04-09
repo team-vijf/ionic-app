@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Building } from '../models/building.model';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Classroom } from '../models/classroom.model';
+import { AppService } from '../app.service';
 
 @Component({
   selector: 'app-tab1',
@@ -12,7 +13,7 @@ export class Tab1Page implements OnInit {
 
   buildings: Building[];
   buildingId;
-  constructor(private route: ActivatedRoute, private router: Router) {
+  constructor(private route: ActivatedRoute, private router: Router, private appService: AppService) {
     this.buildings = this.route.snapshot.parent.parent.data['buildings'];
   }
 

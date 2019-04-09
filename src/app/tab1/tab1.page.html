@@ -8,7 +8,7 @@
 
 <ion-content>
     <ion-card class="welcome-card">
-      <ion-img src="/assets/hu-logo-nl.svg"></ion-img>
+      <ion-img [src]="appService.activeImage"></ion-img>
       <ion-card-header>
         <ion-card-title>Ruimtebezetting</ion-card-title>
       </ion-card-header>
@@ -20,12 +20,9 @@
     <ion-item>
 
         <ion-label>Gebouw</ion-label>
-    <ion-select  [(ngModel)]="buildingId" >
+    <ion-select (ionChange)="searchForClassrooms()"  [(ngModel)]="buildingId" >
         <ion-select-option [value]="building.id" *ngFor="let building of buildings" >{{building.streetName + " " + building.buildingNumber}}</ion-select-option>
     </ion-select>
-    </ion-item>
-    <ion-item>
-        <ion-button (click)="searchForClassrooms()">Zoeken</ion-button>
     </ion-item>
   </ion-card>
     <!-- <ion-list lines="none">

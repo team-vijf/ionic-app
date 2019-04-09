@@ -1,4 +1,4 @@
-<ion-app>
+<ion-app [ngClass]=appService.activeTheme>
   <div *ngIf="loading" class="spinner-container">
     <div class="wrapper" style="transform: initial;">
         <div class="indicator u4-if-effect-spin"></div>
