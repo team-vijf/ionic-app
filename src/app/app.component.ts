@@ -28,6 +28,12 @@ export class AppComponent {
   }
 
   initializeApp() {
+    try {
+      this.appService.darkMode = JSON.parse(localStorage.getItem("darkMode"));
+      this.appService.setActiveTheme();
+    } catch {
+      this.appService.darkMode = false;
+    }
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
       this.splashScreen.hide();

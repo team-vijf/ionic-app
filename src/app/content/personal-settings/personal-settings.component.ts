@@ -8,12 +8,12 @@ import { AppService } from 'src/app/app.service';
 })
 export class PersonalSettingsComponent implements OnInit {
 
-  nightMode: boolean;
   constructor(public appService: AppService) { }
 
   ngOnInit() {}
 
   public changeMode() {
-    this.appService.setActiveTheme(this.nightMode);
+    this.appService.saveDarkModeSettingLocally(this.appService.darkMode);
+    this.appService.setActiveTheme();
   }
 }

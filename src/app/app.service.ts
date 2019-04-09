@@ -12,13 +12,16 @@ export class AppService {
     light: "/assets/hu-logo-nl.svg",
     dark: "/assets/hu-logo-dark.svg"
   };
-  public activeTheme = this.themes.light;
-  public activeImage = this.images.light;
+  public activeTheme;
+  public activeImage;
 
-  constructor() { }
+  public darkMode: boolean;
 
-  setActiveTheme(bool) {
-    if (bool) {
+  constructor() {
+   }
+
+  setActiveTheme() {
+    if (this.darkMode) {
       this.activeTheme = this.themes.dark;
       this.activeImage = this.images.dark;
 
@@ -27,5 +30,8 @@ export class AppService {
       this.activeImage = this.images.light;
 
     }
+  }
+  public saveDarkModeSettingLocally(bool: boolean) {
+    localStorage.setItem("darkMode", bool.toString());
   }
 }
