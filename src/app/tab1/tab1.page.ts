@@ -19,30 +19,25 @@ export class Tab1Page implements OnInit {
 
   ngOnInit() {
   }
-  public searchForClassrooms() {
-    const building = this.buildings.find((item) => {
-      return item.id === this.buildingId;
-    });
-    const classroom = this.findFirstAvailibleRoom(building);
-    this.router.navigate(["app", "classroom", classroom.classcode]);
+  // public searchForClassrooms() {
+  //   const building = this.buildings.find((item) => {
+  //     return item.id === this.buildingId;
+  //   });
+    // const classroom = this.findFirstAvailibleRoom(building);
+    // this.router.navigate(["app", "classroom", classroom.classcode]);
+  // }
+  public routeToBuildingPage() {
+    this.router.navigate(["app" , "buildings", this.buildingId]);
   }
-
-  private findFirstAvailibleRoom(building: Building): Classroom {
-    for (let i = 0; i < building.floors.length; i++) {
-      const floor = building.floors[i];
-      for (let j = 0; j < floor.classrooms.length; j++) {
-        const classroom = floor.classrooms[j];
-        if (classroom.free) {
-          return classroom;
-        }
-      }
-    }
-    // const freeRoom = building.floors.forEach((floor) => {
-    //   floor.classrooms.forEach((classroom) => {
-    //     if (classroom.free) {
-    //       return classroom;
-    //     }
-    //   });
-    // });
-  }
+  // private findFirstAvailibleRoom(building: Building): Classroom {
+  //   for (let i = 0; i < building.floors.length; i++) {
+  //     const floor = building.floors[i];
+  //     for (let j = 0; j < floor.classrooms.length; j++) {
+  //       const classroom = floor.classrooms[j];
+  //       if (classroom.free) {
+  //         return classroom;
+  //       }
+  //     }
+  //   }
+  // }
 }

@@ -20,7 +20,7 @@
     <ion-item>
 
         <ion-label>Gebouw</ion-label>
-    <ion-select (ionChange)="searchForClassrooms()"  [(ngModel)]="buildingId" >
+    <ion-select  [(ngModel)]="buildingId" (ionChange)="routeToBuildingPage()">
         <ion-select-option [value]="building.id" *ngFor="let building of buildings" >{{building.streetName + " " + building.buildingNumber}}</ion-select-option>
     </ion-select>
     </ion-item>
