@@ -10,7 +10,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BuildingService } from './api/building.service';
 import { BuildingResolverService } from './resolver/building-resolver-service';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { TokenInterceptor } from './api/http-interceptor';
 @NgModule({
   declarations: [
     AppComponent
@@ -22,6 +23,11 @@ import { HttpClientModule } from '@angular/common/http';
     SplashScreen,
     BuildingService,
     BuildingResolverService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
+    },
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]

@@ -8,15 +8,16 @@ import { Observable } from 'rxjs';
 export class CoreApiService {
   // json-server -w testData.json
   url = "http://www.localhost:3000";
+  // url = "http://52.233.181.59/public";
 
   constructor(private httpClient: HttpClient) {
   }
 
   get<T>(url): Observable<T> {
-      if (!url.startsWith("/")) {
-          url = "/" + url;
-      }
-      return this.httpClient.get<T>(this.url + url);
+    if (!url.startsWith("/")) {
+        url = "/" + url;
+    }
+    return this.httpClient.get<T>(this.url + url);
   }
 
 
