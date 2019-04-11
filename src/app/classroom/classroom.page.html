@@ -10,7 +10,7 @@
 <ion-content>
     <ion-list>
         <ion-list-header>
-            Klaslokaal
+            {{"F_Classroom" | translate}}
         </ion-list-header>
         <ion-item>
             <ion-label>
@@ -19,7 +19,7 @@
         </ion-item>
         <ion-item>
                 <ion-label>
-                    {{classroom.free ? "Dit lokaal is vrij!" : "Dit lokaal is bezet."}}
+                    {{(classroom.free ? "F_Classroom_Free" : "F_Classroom_Not_Free") | translate}}
                 </ion-label>
             </ion-item>
     </ion-list>

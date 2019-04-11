@@ -12,12 +12,13 @@ import { BuildingService } from './api/building.service';
 import { BuildingResolverService } from './resolver/building-resolver-service';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptor } from './api/http-interceptor';
+import { SharedModule } from './shared.module';
 @NgModule({
   declarations: [
     AppComponent
   ],
   entryComponents: [],
-  imports: [BrowserModule, HttpClientModule, IonicModule.forRoot(), AppRoutingModule],
+  imports: [BrowserModule, HttpClientModule, IonicModule.forRoot(), AppRoutingModule, SharedModule],
   providers: [
     StatusBar,
     SplashScreen,

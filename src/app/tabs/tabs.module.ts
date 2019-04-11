@@ -11,12 +11,14 @@ import { BackButtonComponent } from '../content/general/back/back-button/back-bu
 import { Tab3Page } from '../tab3/tab3.page';
 import { Tab1Page } from '../tab1/tab1.page';
 import { ClassroomPage } from '../classroom/classroom.page';
+import { SharedModule } from '../shared.module';
 
 @NgModule({
   imports: [
     IonicModule,
     CommonModule,
     FormsModule,
+    SharedModule,
     TabsPageRoutingModule
   ],
   declarations: [

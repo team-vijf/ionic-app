@@ -7,6 +7,7 @@ import { BuildingComponent } from '../content/building/building.component';
 import { BuildingsComponent } from '../content/buildings/buildings.component';
 import { FloorComponent } from '../content/floor/floor.component';
 import { OrdinalNumberSuffixPipe } from '../content/pipes/ordinal-number-suffix.pipe';
+import { SharedModule } from '../shared.module';
 export const tab2Routes: Routes = [
   {
     path: '',
@@ -31,7 +32,8 @@ export const tab2Routes: Routes = [
     IonicModule,
     CommonModule,
     FormsModule,
-    RouterModule.forChild(tab2Routes)
+    RouterModule.forChild(tab2Routes),
+    SharedModule
   ],
   declarations: [
     BuildingsComponent,

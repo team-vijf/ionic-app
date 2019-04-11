@@ -1,6 +1,13 @@
 <ion-list>
   <ion-item>
-    <ion-label>Donkere modus</ion-label>
+    <ion-label>{{"F_Dark_Mode" | translate}}</ion-label>
     <ion-toggle [(ngModel)]="appService.darkMode" (ionChange)="changeMode()"></ion-toggle>
+  </ion-item>
+  
+  <ion-item>
+    <ion-label>{{ "F_Language" | translate}}</ion-label>
+    <ion-select [(ngModel)]="languageId" (ionChange)="changeLanguage()" >
+      <ion-select-option [value]="language.id" *ngFor="let language of languageService.languages">{{language.name}}</ion-select-option>
+    </ion-select>
   </ion-item>
 </ion-list>

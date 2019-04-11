@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 import { Router } from '@angular/router';
+import { TranslatePipe } from 'src/app/content/pipes/translate.pipe';
 
 @Component({
   selector: 'app-back-button',
@@ -20,7 +21,7 @@ export class BackButtonComponent implements OnInit {
     }
     return false;
   }
-  constructor(private location: Location, public router: Router) { }
+  constructor(private location: Location, public router: Router, private translatePipe: TranslatePipe) { }
 
   ngOnInit() {
   }
@@ -28,13 +29,13 @@ export class BackButtonComponent implements OnInit {
   public getTitle() {
     switch (this.router.url) {
       case (this.basePages[0]): {
-        return "Gebouwen";
+        return this.translatePipe.transform("F_Buildings");
       }
       case (this.basePages[1]): {
         return "Home";
       }
       case (this.basePages[2]): {
-        return "Instellingen";
+        return this.translatePipe.transform("F_Settings");
       }
     }
   }

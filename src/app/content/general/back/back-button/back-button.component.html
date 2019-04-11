@@ -1,7 +1,7 @@
 <div class="ion-activatable" (click)="goBack()">
     <div *ngIf="!basePage">
         <ion-ripple-effect></ion-ripple-effect>
-        <ion-icon  class="my-icon" name="arrow-back"></ion-icon><span>Terug</span>
+        <ion-icon  class="my-icon" name="arrow-back"></ion-icon><span>{{"F_Back" | translate}}</span>
     </div>
 
     <span *ngIf="basePage">{{getTitle()}}</span>

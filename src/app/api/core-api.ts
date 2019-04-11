@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 export class CoreApiService {
   // json-server -w testData.json
   url = "http://www.localhost:3000";
-  // url = "http://52.233.181.59/public";
+  // url = "http://api.arjen.io/public/occupation";
 
   constructor(private httpClient: HttpClient) {
   }

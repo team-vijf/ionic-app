@@ -5,6 +5,7 @@ import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { Router, Event, NavigationStart, NavigationEnd, NavigationCancel, NavigationError } from '@angular/router';
 import { AppService } from './app.service';
+import { LanguageService } from './api/language.service';
 
 @Component({
   selector: 'app-root',
@@ -19,7 +20,8 @@ export class AppComponent {
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
     private router: Router,
-    private appService: AppService
+    private appService: AppService,
+    private languageService: LanguageService
   ) {
     router.events.subscribe((routerEvent: Event) => {
       this.checkRouterEvent(routerEvent);
@@ -29,6 +31,7 @@ export class AppComponent {
 
   initializeApp() {
     try {
+      this.languageService.setLanguage(localStorage.getItem("language"));
       this.appService.darkMode = JSON.parse(localStorage.getItem("darkMode"));
       this.appService.setActiveTheme();
     } catch {

@@ -1,23 +1,45 @@
 import { Pipe, PipeTransform } from '@angular/core';
+import { LanguageService } from 'src/app/api/language.service';
 
 @Pipe({
   name: 'ordinalNumberSuffix'
 })
 export class OrdinalNumberSuffixPipe implements PipeTransform {
 
-  transform(value: Number, args?: any): String {
-    let suffix = "e";
-    switch (value) {
-      case 1: {
-        suffix = "ste";
-        break;
-      }
-      case 2: {
-        suffix = "de";
-        break;
-      }
-    }
-    return value + suffix;
-  }
+  constructor(private languageService: LanguageService) { }
 
+  transform(value: Number, args?: any): String {
+    console.log(this.languageService.currentLanguage, this.languageService.english.id)
+    if (this.languageService.currentLanguage.id === this.languageService.english.id) {
+      let suffix = "th";
+      switch (value) {
+        case 1: {
+          suffix = "st";
+          break;
+        }
+        case 2: {
+          suffix = "nd";
+          break;
+        }
+        case 3: {
+          suffix = "rd";
+          break;
+        }
+      }
+      return value + suffix;
+    } else {
+      let suffix = "e";
+      switch (value) {
+        case 1: {
+          suffix = "ste";
+          break;
+        }
+        case 2: {
+          suffix = "de";
+          break;
+        }
+      }
+      return value + suffix;
+    }
+  }
 }

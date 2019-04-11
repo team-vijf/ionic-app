@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { PersonalSettingsComponent } from '../content/personal-settings/personal-settings.component';
+import { SharedModule } from '../shared.module';
 export const tab3Routes: Routes = [
 
   {
@@ -16,7 +17,8 @@ export const tab3Routes: Routes = [
     IonicModule,
     CommonModule,
     FormsModule,
-    RouterModule.forChild(tab3Routes)
+    RouterModule.forChild(tab3Routes),
+    SharedModule
   ],
   declarations: [
     PersonalSettingsComponent

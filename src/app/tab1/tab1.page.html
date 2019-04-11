@@ -10,16 +10,16 @@
     <ion-card class="welcome-card">
       <ion-img [src]="appService.activeImage"></ion-img>
       <ion-card-header>
-        <ion-card-title>Ruimtebezetting</ion-card-title>
+        <ion-card-title>{{"F_Room_Avaliability" | translate}}</ion-card-title>
       </ion-card-header>
     </ion-card>
     <ion-card>
     <ion-card-header>
-    <p>Klik op "Gebouwen" om te zoeken naar vrije gebouwen, of zoek hier beneden direct naar een vrij lokaal in een gebouw van jouw keuze.</p>
+    <p>{{"F_Click_On_Buildings" | translate}}</p>
   </ion-card-header>
     <ion-item>
 
-        <ion-label>Gebouw</ion-label>
+        <ion-label>{{"F_Building" | translate}}</ion-label>
     <ion-select  [(ngModel)]="buildingId" (ionChange)="routeToBuildingPage()">
         <ion-select-option [value]="building.id" *ngFor="let building of buildings" >{{building.streetName + " " + building.buildingNumber}}</ion-select-option>
     </ion-select>
