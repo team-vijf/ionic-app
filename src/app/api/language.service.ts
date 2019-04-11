@@ -34,7 +34,7 @@ export const dutchTranslation = {
   translations: {
     "F_Room_Avaliability": "Lokaalbezetting",
     // tslint:disable-next-line: max-line-length
-    "F_Click_On_Buildings": "Klik op \"Gebouwen\" om te zoeken naar vrije gebouwen, of zoek hier beneden direct naar een vrij lokaal in een gebouw van jouw keuze.",
+    "F_Click_On_Buildings": "Klik op \"Gebouwen\" om te zoeken naar vrije gebouwen, of verander wat installingen in het  \"Instellingen\" tabje",
     "F_Building": "Gebouw",
     "F_Buildings": "Gebouwen",
     "F_Settings": "Instellingen",
@@ -57,7 +57,7 @@ export const englishTranslation = {
   translations: {
     "F_Room_Avaliability": "Room occupancy",
     // tslint:disable-next-line: max-line-length
-    "F_Click_On_Buildings": "Click on \"Buildings\" to look for free buildings, or search down here immidiatly to look for a free classroom in a building of your choice",
+    "F_Click_On_Buildings": "Click on \"Buildings\" to look for free buildings or change some settings in the \"Settings\" tab",
     "F_Building": "Building",
     "F_Buildings": "Buildings",
     "F_Settings": "Settings",
