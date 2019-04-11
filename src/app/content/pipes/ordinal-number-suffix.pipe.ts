@@ -9,7 +9,6 @@ export class OrdinalNumberSuffixPipe implements PipeTransform {
   constructor(private languageService: LanguageService) { }
 
   transform(value: Number, args?: any): String {
-    console.log(this.languageService.currentLanguage, this.languageService.english.id)
     if (this.languageService.currentLanguage.id === this.languageService.english.id) {
       let suffix = "th";
       switch (value) {
