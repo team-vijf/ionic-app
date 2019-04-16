@@ -50,7 +50,7 @@ setFloorByBuilding(building, floorId) {
   }
 }
 getBuildingAdress() {
-  return this.building.streetName + " " + this.building.buildingNumber;
+  return this.building.streetname + " " + this.building.buildingnumber;
 }
 onClick(classcode: string) {
   this.router.navigate(["app", "classroom", classcode]);

@@ -19,6 +19,7 @@ export class BuildingComponent implements OnInit, OnDestroy {
     private router: Router) { }
 
   ngOnInit() {
+    console.log("hi")
     const buildingId = this.route.snapshot.params["buildingId"];
     this.intervalId = setInterval(() => {
       this.buildingService.getBuildingById(buildingId).subscribe((data) => {
@@ -45,7 +46,7 @@ export class BuildingComponent implements OnInit, OnDestroy {
   }
   public getAmountFreeClassrooms(floor: Floor) {
     const freeClasses = floor.classrooms.filter((classroom) => {
-      return classroom.free;
+      return classroom.free === true;
     });
     return freeClasses.length;
   }

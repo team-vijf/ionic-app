@@ -13,7 +13,7 @@ export class Tab1Page implements OnInit {
 
   buildings: Building[];
   buildingId;
-  constructor(private route: ActivatedRoute, private router: Router, private appService: AppService) {
+  constructor(private route: ActivatedRoute, private router: Router, public appService: AppService) {
     this.buildings = this.route.snapshot.parent.parent.data['buildings'];
   }
 

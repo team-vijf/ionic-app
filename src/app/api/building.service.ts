@@ -13,10 +13,10 @@ export class BuildingService {
   }
 
   getBuildings(): Observable<Building[]> {
-      return this.api.get<Building[]>("/buildings");
+      return this.api.get<Building[]>("/occupation/buildings");
   }
   getBuildingById(id: string): Observable<Building> {
-    return this.api.get<Building>(`/buildings/${id}`);
+    return this.api.get<Building>(`/occupation/building/${id}`);
   }
 
 

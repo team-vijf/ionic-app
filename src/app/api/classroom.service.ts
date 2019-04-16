@@ -12,7 +12,7 @@ export class ClassroomService {
   constructor(private api: CoreApiService) {
   }
   getClassroomBycode(id: string): Observable<Classroom> {
-    return this.api.get<Classroom>(`/classroom/${id}`);
+    return this.api.get<Classroom>(`/occupation/classroom/${id}`);
   }
 
 

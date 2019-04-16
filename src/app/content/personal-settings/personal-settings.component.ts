@@ -10,7 +10,7 @@ import { TranslatePipe } from '../pipes/translate.pipe';
 })
 export class PersonalSettingsComponent implements OnInit {
 
-  constructor(public appService: AppService, private languageService: LanguageService, private translate: TranslatePipe) {
+  constructor(public appService: AppService, public languageService: LanguageService, private translate: TranslatePipe) {
   }
 
   languageId = this.languageService.currentLanguage.id ;

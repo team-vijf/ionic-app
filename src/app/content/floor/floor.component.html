@@ -1,22 +1,29 @@
 <ion-content>
-  <ion-refresher (ionRefresh)="doRefresh($event)">
+  <!-- <ion-refresher (ionRefresh)="doRefresh($event)">
     <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="Pull to refresh">
     </ion-refresher-content>
-  </ion-refresher>
+  </ion-refresher> -->
   <ion-card *ngIf="dataLoaded | async">
     <ion-list>
       <ion-list-header>
         <ion-label class="label-link">
-          {{floor.floorNumber === 0 ? ("F_Ground_Floor" | translate) : (floor.floorNumber | ordinalNumberSuffix) + " " + ("F_Floor_Of" | translate) }}
-          {{getBuildingAdress()}}
+          {{floor.floornumber === 0 ? ("F_Ground_Floor" | translate) : (floor.floornumber | ordinalNumberSuffix) + " " + ("F_Floor_Of" | translate) }}
+          {{building.streetname + " " + building.buildingnumber}}
         </ion-label>
       </ion-list-header>
       <ion-item class="ion-activatable" *ngFor="let classroom of floor.classrooms"
-        (click)="onClick(classroom.classcode)">
+        (click)="onClick(classroom.classcode)" [ngSwitch]="classroom.free">
         <ion-ripple-effect></ion-ripple-effect>
         <ion-label class="label-link">{{classroom.classcode}}</ion-label>
-        <ion-label [class.free]="classroom.free" [class.occupied]="!classroom.free">
-          {{classroom.free ? ("F_Free" | translate) : ("F_Nothing_Free" | translate)}} </ion-label>
+        <ion-label class="free" *ngSwitchCase="true" >
+          {{"F_Free" | translate}}
+        </ion-label>
+        <ion-label class="occupied" *ngSwitchCase="false">
+          {{"F_Nothing_Free" | translate}}
+        </ion-label>
+        <ion-label *ngSwitchDefault>
+          Unknown
+        </ion-label>
       </ion-item>
     </ion-list>
   </ion-card>

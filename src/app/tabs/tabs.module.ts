@@ -7,11 +7,11 @@ import { TabsPageRoutingModule } from './tabs.router.module';
 
 import { TabsPage } from './tabs.page';
 import { Tab2Page } from '../tab2/tab2.page';
-import { BackButtonComponent } from '../content/general/back/back-button/back-button.component';
 import { Tab3Page } from '../tab3/tab3.page';
 import { Tab1Page } from '../tab1/tab1.page';
 import { ClassroomPage } from '../classroom/classroom.page';
 import { SharedModule } from '../shared.module';
+import { BackButtonComponent } from '../content/general/back-button/back-button.component';
 
 @NgModule({
   imports: [

@@ -20,7 +20,7 @@ export class AppComponent {
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
     private router: Router,
-    private appService: AppService,
+    public appService: AppService,
     private languageService: LanguageService
   ) {
     router.events.subscribe((routerEvent: Event) => {
