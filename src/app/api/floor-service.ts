@@ -13,7 +13,7 @@ export class FloorService {
   }
 
   getFloor(floorId: String): Observable<Floor> {
-    return this.api.get<Floor>(`floor/${floorId}`);
+    return this.api.get<Floor>(`public/floor/${floorId}`);
   }
 
 

@@ -19,7 +19,6 @@ export class BuildingComponent implements OnInit, OnDestroy {
     private router: Router) { }
 
   ngOnInit() {
-    console.log("hi")
     const buildingId = this.route.snapshot.params["buildingId"];
     this.intervalId = setInterval(() => {
       this.buildingService.getBuildingById(buildingId).subscribe((data) => {
@@ -51,6 +50,7 @@ export class BuildingComponent implements OnInit, OnDestroy {
     return freeClasses.length;
   }
   public onClick(buildingId, floorId) {
+    clearInterval(this.intervalId);
     this.router.navigate(["app", "buildings", buildingId, floorId]);
   }
 }

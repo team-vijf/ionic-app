@@ -1,67 +1,51 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Floor } from 'src/app/models/floor.model';
 import { BuildingService } from 'src/app/api/building.service';
 import { Building } from 'src/app/models/building.model';
 import { FloorService } from 'src/app/api/floor-service';
+import { clearInterval } from 'timers';
 
 @Component({
   selector: 'app-floor',
   templateUrl: './floor.component.html',
   styleUrls: ['./floor.component.scss'],
 })
-export class FloorComponent implements OnInit {
+export class FloorComponent implements OnInit, OnDestroy {
 
-  @ViewChild("list") list: ElementRef;
   floor: Floor;
   building: Building;
+  intervalId;
   dataLoaded: Promise<boolean> = Promise.resolve(false);
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private buildingService: BuildingService,
     private floorService: FloorService) {
   }
 
   ngOnInit() {
     const params = this.route.snapshot.params;
-    const buildingId = params.buildingId;
     const floorId = params.floorId;
-    let building = this.buildingService.buildings.find((_building) => {
-      return _building.id === params.buildingId;
-    });
-    if (!building) {
-      this.buildingService.getBuildingById(buildingId).subscribe((_building) => {
-        building = _building;
-        this.setFloorByBuilding(building, floorId);
+    this.intervalId = setInterval(() => {
+      this.floorService.getFloor(floorId).subscribe((data) => {
+        this.floor = data;
       });
-    } else {
-      this.setFloorByBuilding(building, floorId);
-    }
+    }, 5000);
 }
-setFloorByBuilding(building, floorId) {
-  this.building = building;
-  this.floor = building.floors.find((floor) => {
-    return floor.id === floorId;
-  });
-  if (this.floor) {
-    this.dataLoaded = Promise.resolve(true);
-  }
+ngOnDestroy () {
+  clearInterval(this.intervalId);
 }
 getBuildingAdress() {
   return this.building.streetname + " " + this.building.buildingnumber;
 }
 onClick(classcode: string) {
   this.router.navigate(["app", "classroom", classcode]);
+  clearInterval(this.intervalId);
 }
 doRefresh(event) {
   this.floorService.getFloor(this.floor.id).subscribe((data) => {
-    // dit kan later weg om de app te "optimizen" :)
     setTimeout(() => {
-      const indexCurrentBuilding = this.buildingService.buildings.indexOf(this.building);
-      const indexCurrentFloor = this.buildingService.buildings[indexCurrentBuilding].floors.indexOf(this.floor);
-      this.buildingService.buildings[indexCurrentBuilding].floors[indexCurrentFloor] = data;
       this.floor = data;
       event.target.complete();
     }, 200);
