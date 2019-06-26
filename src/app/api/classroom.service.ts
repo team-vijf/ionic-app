@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Classroom } from '../models/Classroom.model';
+import { Classroom } from '../models/classroom.model';
 import { CoreApiService } from './core-api';
 
 @Injectable({
