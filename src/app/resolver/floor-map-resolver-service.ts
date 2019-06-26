@@ -18,7 +18,7 @@ export class FloorMapResolverService implements Resolve<any> {
         if (!floorId) {
             floorId = "HL15-4";
         }
-        return this.floorService.getFloorMapTest(floorId).pipe(map((data) => {
+        return this.floorService.getFloorMap(floorId).pipe(map((data) => {
             return data;
         }), catchError(error => {
             console.log(error);

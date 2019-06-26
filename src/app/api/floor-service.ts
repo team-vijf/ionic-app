@@ -18,8 +18,5 @@ export class FloorService {
   getFloorMap(floorId: String): Observable<any> {
     return this.api.get(`floorplan/${floorId}`);
   }
-  getFloorMapTest(floorId: String): Observable<any> {
-    return this.api.getTest(`floorplan/${floorId}`);
-  }
 
 }
