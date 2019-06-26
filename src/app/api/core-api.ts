@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class CoreApiService {
-  url = "https://api.arjen.io/public";
+  url = "https://sslapi.arjen.io/public";
 
   constructor(private httpClient: HttpClient) {
   }
