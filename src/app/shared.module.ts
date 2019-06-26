@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { TranslatePipe } from './content/pipes/translate.pipe';
+import { FloorMapComponent } from './content/floor-map/floor-map.component';
 
 
 @NgModule({
@@ -8,9 +9,13 @@ import { TranslatePipe } from './content/pipes/translate.pipe';
   ],
   imports: [
   ],
-  exports: [ TranslatePipe],
+  exports: [
+    TranslatePipe,
+    FloorMapComponent
+  ],
   declarations: [
-    TranslatePipe
+    TranslatePipe,
+    FloorMapComponent
   ]
 })
 export class SharedModule {}

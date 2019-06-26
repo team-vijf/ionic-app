@@ -7,12 +7,15 @@ import { Tab3Page } from '../tab3/tab3.page';
 import { Tab1Page } from '../tab1/tab1.page';
 import { ClassroomResolverService } from '../resolver/classroom-resolver-service';
 import { ClassroomPage } from '../classroom/classroom.page';
+import { FloorMapResolverService } from '../resolver/floor-map-resolver-service';
 
 const routes: Routes = [
   {
     path: 'app',
     component: TabsPage,
-    resolve: {buildings: BuildingResolverService},
+    resolve: {
+      buildings: BuildingResolverService
+    },
     children: [
       {
         path: 'home',
@@ -20,6 +23,9 @@ const routes: Routes = [
           {
             path: '',
             component: Tab1Page,
+            resolve: {
+              floorplan : FloorMapResolverService
+            },
             loadChildren: '../tab1/tab1.module#Tab1PageModule'
           }
         ]

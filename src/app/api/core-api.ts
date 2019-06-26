@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class CoreApiService {
   // json-server -w testData.json
-  // url = "http://www.localhost:3000";
+  Testurl = "http://www.localhost:3000";
   url = "http://api.arjen.io/public";
 
   constructor(private httpClient: HttpClient) {
@@ -18,6 +18,12 @@ export class CoreApiService {
         url = "/" + url;
     }
     return this.httpClient.get<T>(this.url + url);
+  }
+  getTest(url) {
+    if (!url.startsWith("/")) {
+      url = "/" + url;
+  }
+    return this.httpClient.get(this.Testurl + url);
   }
 
 

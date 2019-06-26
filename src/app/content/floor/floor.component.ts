@@ -1,10 +1,8 @@
 import { Component, OnInit, ViewChild, ElementRef, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Floor } from 'src/app/models/floor.model';
-import { BuildingService } from 'src/app/api/building.service';
 import { Building } from 'src/app/models/building.model';
 import { FloorService } from 'src/app/api/floor-service';
-import { clearInterval } from 'timers';
 
 @Component({
   selector: 'app-floor',
@@ -15,7 +13,7 @@ export class FloorComponent implements OnInit, OnDestroy {
 
   floor: Floor;
   building: Building;
-  intervalId;
+  private intervalId;
   dataLoaded: Promise<boolean> = Promise.resolve(false);
 
   constructor(
@@ -40,8 +38,8 @@ getBuildingAdress() {
   return this.building.streetname + " " + this.building.buildingnumber;
 }
 onClick(classcode: string) {
-  this.router.navigate(["app", "classroom", classcode]);
   clearInterval(this.intervalId);
+  this.router.navigate(["app", "classroom", classcode]);
 }
 doRefresh(event) {
   this.floorService.getFloor(this.floor.id).subscribe((data) => {

@@ -18,7 +18,13 @@ import { SharedModule } from './shared.module';
     AppComponent
   ],
   entryComponents: [],
-  imports: [BrowserModule, HttpClientModule, IonicModule.forRoot(), AppRoutingModule, SharedModule],
+  imports: [
+    BrowserModule,
+    HttpClientModule,
+    IonicModule.forRoot(),
+    AppRoutingModule,
+    SharedModule
+  ],
   providers: [
     StatusBar,
     SplashScreen,
@@ -33,4 +39,4 @@ import { SharedModule } from './shared.module';
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }

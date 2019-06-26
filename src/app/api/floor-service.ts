@@ -13,8 +13,13 @@ export class FloorService {
   }
 
   getFloor(floorId: String): Observable<Floor> {
-    return this.api.get<Floor>(`public/floor/${floorId}`);
+    return this.api.get<Floor>(`floor/${floorId}`);
   }
-
+  getFloorMap(floorId: String): Observable<any> {
+    return this.api.get(`floorplan/${floorId}`);
+  }
+  getFloorMapTest(floorId: String): Observable<any> {
+    return this.api.getTest(`floorplan/${floorId}`);
+  }
 
 }
