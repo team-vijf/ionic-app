@@ -25,7 +25,7 @@
     </ion-item> -->
   </ion-card>
   <ion-card>
-    <app-floor-map floorId="HL15-4" [map]="plan"></app-floor-map>
+    <app-floor-map *ngIf="plan" floorId="HL15-4" [map]="plan"></app-floor-map>
   </ion-card>
     <!-- <ion-list lines="none">
       <ion-list-header>

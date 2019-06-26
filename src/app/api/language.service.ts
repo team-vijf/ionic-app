@@ -48,7 +48,11 @@ export const dutchTranslation = {
     "F_Back": "Terug",
     "F_Dark_Mode": "Donkere modus",
     "F_Language": "Taal",
-    "F_Floor" : "verdieping"
+    "F_Floor" : "verdieping",
+    "F_No_Buildings_Here" : "Er zijn nog geen gebouwen. kijk hier later nog eens!",
+    "F_No_Floors_Here" : "Er zijn geen verdiepingen voor dit gebouw... vreemd.",
+    "F_No_Classrooms_Here" : "Geen klaslokalen op deze verdieping",
+    "F_NoClassrooms" : "Geen klaslokalen"
   }
 };
 export const englishTranslation = {
@@ -71,6 +75,10 @@ export const englishTranslation = {
     "F_Back": "Back",
     "F_Dark_Mode": "Dark mode",
     "F_Language": "Language",
-    "F_Floor" : "floor"
+    "F_Floor" : "floor",
+    "F_No_Buildings_Here" : "There are no buildings here, check back later!",
+    "F_No_Floors_Here" : "There are no floors known for this building... weird.",
+    "F_No_Classrooms_Here" : "No Classrooms on this floor.",
+    "F_NoClassrooms" : "No classrooms"
   }
 };

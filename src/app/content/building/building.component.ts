@@ -43,10 +43,14 @@ export class BuildingComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     clearInterval(this.intervalId);
   }
-  public getAmountFreeClassrooms(floor: Floor) {
+  public getAmountFreeClassrooms(floor: Floor): number {
+    if (floor.classrooms.length === 0) {
+      return -1;
+    }
     const freeClasses = floor.classrooms.filter((classroom) => {
       return classroom.free === true;
     });
+
     return freeClasses.length;
   }
   public onClick(buildingId, floorId) {

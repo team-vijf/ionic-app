@@ -1,5 +1,5 @@
 <ion-content>
-    <ion-card>
+    <ion-card *ngIf="building">
         <ion-list>
             <ion-list-header>
                 <ion-label class="label-link">{{building.streetname + " " + building.buildingnumber}}</ion-label>
@@ -10,11 +10,18 @@
                 <ion-label class="label-link">
                     {{floor.floornumber === 0 ? ("F_Ground_Floor" | translate) : (floor.floornumber | ordinalNumberSuffix) + " " + ("F_Floor" | translate)}}
                 </ion-label>
-                <ion-label *ngIf="{count : getAmountFreeClassrooms(floor)} as freeRooms"
-                    [class.free]="freeRooms.count > 0" [class.occupied]="freeRooms.count == 0">
-                    {{freeRooms.count === 0 ? ("F_Nothing_Free" | translate) :  freeRooms.count + " " + ("F_Free" | translate) }}
+                <ion-label [ngSwitch]="getAmountFreeClassrooms(floor)">
+                    <p *ngSwitchCase="0" class="occupied"> {{"F_Nothing_Free" | translate}}</p>
+                    <p *ngSwitchCase="-1">  {{"F_NoClassrooms" | translate}} </p>
+                    <p *ngSwitchDefault class="free"> {{freeRooms.count + " " + ("F_Free" | translate)}} </p>
                 </ion-label>
+
             </ion-item>
         </ion-list>
+    </ion-card>
+    <ion-card *ngIf="!building">
+        <ion-card-content>
+            {{"F_No_Floors_Here" | translate}}
+        </ion-card-content>
     </ion-card>
 </ion-content>

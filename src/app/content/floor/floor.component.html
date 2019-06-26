@@ -3,7 +3,7 @@
     <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="Pull to refresh">
     </ion-refresher-content>
   </ion-refresher> -->
-  <ion-card *ngIf="dataLoaded | async">
+  <ion-card *ngIf="floor">
     <ion-list>
       <ion-list-header>
         <ion-label class="label-link">
@@ -26,5 +26,10 @@
         </ion-label>
       </ion-item>
     </ion-list>
+  </ion-card>
+  <ion-card *ngIf="!floor">
+      <ion-card-content>
+          {{"F_No_Classrooms_Here" | translate}}
+      </ion-card-content>
   </ion-card>
 </ion-content>

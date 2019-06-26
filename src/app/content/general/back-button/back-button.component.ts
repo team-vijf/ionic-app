@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
-import { Router } from '@angular/router';
+import { Router, NavigationEnd } from '@angular/router';
 import { TranslatePipe } from 'src/app/content/pipes/translate.pipe';
 
 @Component({
@@ -10,6 +10,7 @@ import { TranslatePipe } from 'src/app/content/pipes/translate.pipe';
 })
 export class BackButtonComponent implements OnInit {
 
+  private pageStack: string[] = [];
   private basePages = [
     "/app/buildings",
     "/app/home",
@@ -21,7 +22,21 @@ export class BackButtonComponent implements OnInit {
     }
     return false;
   }
-  constructor(private location: Location, public router: Router, private translatePipe: TranslatePipe) { }
+  constructor(
+    public router: Router, private translatePipe: TranslatePipe
+    ) {
+      this.router.events.subscribe(event => {
+        if (event instanceof NavigationEnd) {
+            if (this.pageStack.length > 10) {
+                this.pageStack.pop();
+            }
+            if (this.pageStack.length === 0) {
+                this.pageStack[0] = '/app/home';
+            }
+            this.pageStack.unshift(event.url);
+        }
+    })
+     }
 
   ngOnInit() {
   }
@@ -41,7 +56,9 @@ export class BackButtonComponent implements OnInit {
   }
   public goBack() {
     if (!this.basePage) {
-      this.location.back();
+      this.pageStack.shift();
+      const previousPage = this.pageStack.shift();
+      this.router.navigateByUrl(previousPage);
     }
   }
 }

@@ -23,9 +23,6 @@ const routes: Routes = [
           {
             path: '',
             component: Tab1Page,
-            resolve: {
-              floorplan : FloorMapResolverService
-            },
             loadChildren: '../tab1/tab1.module#Tab1PageModule'
           }
         ]

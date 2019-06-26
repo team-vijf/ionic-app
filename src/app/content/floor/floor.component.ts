@@ -14,7 +14,7 @@ export class FloorComponent implements OnInit, OnDestroy {
   floor: Floor;
   building: Building;
   private intervalId;
-  dataLoaded: Promise<boolean> = Promise.resolve(false);
+  // dataLoaded: Promise<boolean> = Promise.resolve(false);
 
   constructor(
     private route: ActivatedRoute,

@@ -1,5 +1,6 @@
 <ion-content>
-  <ion-card>
+
+  <ion-card *ngIf="buildings">
     <ion-list>
       <ion-list-header>
         <ion-label>{{"F_Buildings" | translate}}</ion-label>
@@ -9,5 +10,11 @@
         <ion-label class="label-link">{{building.streetname + " " + building.buildingnumber}}</ion-label>
       </ion-item>
     </ion-list>
+  </ion-card>
+
+  <ion-card *ngIf="!buildings">
+      <ion-card-content>
+          {{"F_No_Buildings_Here" | translate}}
+        </ion-card-content>
   </ion-card>
 </ion-content>
