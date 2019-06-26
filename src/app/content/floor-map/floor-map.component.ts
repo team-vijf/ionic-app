@@ -23,13 +23,14 @@ export class FloorMapComponent implements OnInit {
 
   refreshPlan() {
     const classrooms = this.getClassroomsFromSVG();
-    this.floorService.getFloor(this.floorId).subscribe(floorData => {
-      for (let i = 0; i < floorData.classrooms.length; i++) {
-        const element = floorData.classrooms[i];
-        this.setColor(classrooms.namedItem("HL15-4.092"), this.getColor(element));
-      }
-    });
-
+    if (classrooms) {
+      this.floorService.getFloor(this.floorId).subscribe(floorData => {
+        for (let i = 0; i < floorData.classrooms.length; i++) {
+          const element = floorData.classrooms[i];
+          this.setColor(classrooms.namedItem("HL15-4.092"), this.getColor(element));
+        }
+      });
+    }
   }
 
   getClassroomsFromSVG() {
