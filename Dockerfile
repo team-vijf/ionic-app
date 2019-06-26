@@ -1,5 +1,5 @@
 # base image
-FROM node:12.2.0
+FROM node:lts-alpine
 
 # install chrome for protractor tests
 # RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
@@ -21,4 +21,4 @@ RUN npm install -g @angular/cli@7.3.9
 COPY . /app
 
 # start app
-CMD ng serve --host 0.0.0.0 --port 80 --prod
+CMD ng serve --host 0.0.0.0 --port 80 --prod --disableHostCheck
