@@ -35,8 +35,12 @@ export class FloorMapComponent implements OnInit {
 
   getClassroomsFromSVG() {
     // SVG must have id floorMap and classrooms must have class: "classroom" with classcode as id.
-    return document.getElementById("floorMap")
-      .getElementsByClassName("classroom");
+    const floormap = document.getElementById("floorMap")
+    if (floormap) {
+      return floormap.getElementsByClassName("classroom");
+    } else {
+      return null;
+    }
   }
   getColor(classroom: Classroom): string {
     switch (classroom.free) {
