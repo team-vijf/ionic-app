@@ -5,7 +5,6 @@ import { Classroom } from '../models/classroom.model';
 import { AppService } from '../app.service';
 import { DomSanitizer } from '@angular/platform-browser';
 import { FloorService } from '../api/floor-service';
-import { ToastController } from '@ionic/angular';
 import { EMPTY } from 'rxjs';
 import { map } from 'rxjs/operators';
 
@@ -24,8 +23,7 @@ export class Tab1Page implements OnInit {
     private router: Router,
     public appService: AppService,
     private sanitizer: DomSanitizer,
-    private floorService: FloorService,
-    private toastController: ToastController
+    private floorService: FloorService
   ) {
     this.buildings = this.route.snapshot.parent.parent.data['buildings'];
     this.plan = this.route.snapshot.data['floorplan'];

@@ -2,9 +2,8 @@ import { Resolve, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/r
 import { Observable, EMPTY, empty } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { catchError, map } from 'rxjs/operators';
-import { Floor } from '../models/floor.model';
 import { FloorService } from '../api/floor-service';
-import { ToastController } from '@ionic/angular';
+import { AppService } from '../app.service';
 
 @Injectable({
     providedIn: 'root'
@@ -13,7 +12,7 @@ export class FloorMapResolverService implements Resolve<any> {
 
     constructor(
         private floorService: FloorService,
-        private toastController: ToastController
+        private appService: AppService
     ) {
     }
 
@@ -24,12 +23,7 @@ export class FloorMapResolverService implements Resolve<any> {
         }
         return this.floorService.getFloorMap(floorId).pipe(map(async (data) => {
             if (data["status"] === "failed") {
-                this.toastController.create({
-                    message: data["error"],
-                    duration: 3000
-                }).then((toastr) => {
-                    toastr.present();
-                });
+                this.appService.showToaster(data["error"], 3000);
                 return EMPTY;
             } else {
                 return data;

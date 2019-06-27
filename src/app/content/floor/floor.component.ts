@@ -1,8 +1,8 @@
 import { Component, OnInit, ViewChild, ElementRef, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Floor } from 'src/app/models/floor.model';
 import { Building } from 'src/app/models/building.model';
 import { FloorService } from 'src/app/api/floor-service';
+import { BuildingService } from 'src/app/api/building.service';
 
 @Component({
   selector: 'app-floor',
@@ -11,15 +11,14 @@ import { FloorService } from 'src/app/api/floor-service';
 })
 export class FloorComponent implements OnInit, OnDestroy {
 
-  floor: Floor;
   building: Building;
   private intervalId;
-  // dataLoaded: Promise<boolean> = Promise.resolve(false);
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private floorService: FloorService) {
+    public floorService: FloorService,
+    public buildingService: BuildingService) {
   }
 
   ngOnInit() {
@@ -27,7 +26,7 @@ export class FloorComponent implements OnInit, OnDestroy {
     const floorId = params.floorId;
     this.intervalId = setInterval(() => {
       this.floorService.getFloor(floorId).subscribe((data) => {
-        this.floor = data;
+        this.floorService.floor.classrooms = data["classrooms"];
       });
     }, 5000);
 }
@@ -41,12 +40,12 @@ onClick(classcode: string) {
   clearInterval(this.intervalId);
   this.router.navigate(["app", "classroom", classcode]);
 }
-doRefresh(event) {
-  this.floorService.getFloor(this.floor.id).subscribe((data) => {
-    setTimeout(() => {
-      this.floor = data;
-      event.target.complete();
-    }, 200);
-  });
-}
+// doRefresh(event) {
+//   this.floorService.getFloor(this.floor.id).subscribe((data) => {
+//     setTimeout(() => {
+//       this.floor = data;
+//       event.target.complete();
+//     }, 200);
+//   });
+// }
 }

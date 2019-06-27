@@ -11,7 +11,6 @@ import { Floor } from 'src/app/models/floor.model';
 })
 export class BuildingComponent implements OnInit, OnDestroy {
 
-  building: Building;
   intervalId;
 
   constructor(private route: ActivatedRoute,
@@ -22,7 +21,6 @@ export class BuildingComponent implements OnInit, OnDestroy {
     const buildingId = this.route.snapshot.params["buildingId"];
     this.intervalId = setInterval(() => {
       this.buildingService.getBuildingById(buildingId).subscribe((data) => {
-        this.building = data;
         const buildingIndex = this.buildingService.buildings.indexOf(data);
         this.buildingService.buildings[buildingIndex] = data;
       });
@@ -30,12 +28,12 @@ export class BuildingComponent implements OnInit, OnDestroy {
     const buildings = this.buildingService.buildings;
     if (!buildings) {
       this.buildingService.getBuildingById(buildingId).subscribe((building) => {
-        this.building = building;
+        this.buildingService.building = building;
       });
     } else {
       for (const building of buildings) {
         if (building.id === buildingId) {
-          this.building = building;
+          this.buildingService.building = building;
         }
       }
     }
@@ -44,14 +42,19 @@ export class BuildingComponent implements OnInit, OnDestroy {
     clearInterval(this.intervalId);
   }
   public getAmountFreeClassrooms(floor: Floor): number {
-    if (floor.classrooms.length === 0) {
+    if (floor.classrooms) {
+      if (floor.classrooms.length === 0) {
+        return -1;
+      }
+      const freeClasses = floor.classrooms.filter((classroom) => {
+        return classroom.free === true;
+      });
+
+      return freeClasses.length;
+    } else {
       return -1;
     }
-    const freeClasses = floor.classrooms.filter((classroom) => {
-      return classroom.free === true;
-    });
 
-    return freeClasses.length;
   }
   public onClick(buildingId, floorId) {
     clearInterval(this.intervalId);

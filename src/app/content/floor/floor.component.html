@@ -3,15 +3,15 @@
     <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="Pull to refresh">
     </ion-refresher-content>
   </ion-refresher> -->
-  <ion-card *ngIf="floor">
+  <ion-card *ngIf="floorService.floor && floorService.floor.classrooms">
     <ion-list>
       <ion-list-header>
         <ion-label class="label-link">
-          {{floor.floornumber === 0 ? ("F_Ground_Floor" | translate) : (floor.floornumber | ordinalNumberSuffix) + " " + ("F_Floor_Of" | translate) }}
-          {{building.streetname + " " + building.buildingnumber}}
+          {{floorService.floor.floornumber === 0 ? ("F_Ground_Floor" | translate) : (floorService.floor.floornumber | ordinalNumberSuffix) + " " + ("F_Floor_Of" | translate) }}
+          {{buildingService.building.streetname + " " + buildingService.building.buildingnumber}}
         </ion-label>
       </ion-list-header>
-      <ion-item class="ion-activatable" *ngFor="let classroom of floor.classrooms"
+      <ion-item class="ion-activatable" *ngFor="let classroom of floorService.floor.classrooms"
         (click)="onClick(classroom.classcode)" [ngSwitch]="classroom.free">
         <ion-ripple-effect></ion-ripple-effect>
         <ion-label class="label-link">{{classroom.classcode}}</ion-label>
@@ -27,7 +27,7 @@
       </ion-item>
     </ion-list>
   </ion-card>
-  <ion-card *ngIf="!floor">
+  <ion-card *ngIf="!floorService.floor || !floorService.floor.classrooms">
       <ion-card-content>
           {{"F_No_Classrooms_Here" | translate}}
       </ion-card-content>

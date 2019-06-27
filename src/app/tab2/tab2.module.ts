@@ -8,6 +8,7 @@ import { BuildingsComponent } from '../content/buildings/buildings.component';
 import { FloorComponent } from '../content/floor/floor.component';
 import { OrdinalNumberSuffixPipe } from '../content/pipes/ordinal-number-suffix.pipe';
 import { SharedModule } from '../shared.module';
+import { FloorResolverService } from '../resolver/floor-resolver-service';
 export const tab2Routes: Routes = [
   {
     path: '',
@@ -19,6 +20,9 @@ export const tab2Routes: Routes = [
   },
   {
     path: ':buildingId/:floorId',
+    resolve: {
+      floor: FloorResolverService
+    },
     component: FloorComponent
   },
   // {
