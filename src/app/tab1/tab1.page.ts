@@ -34,12 +34,6 @@ export class Tab1Page implements OnInit {
   ngOnInit() {
     this.floorService.getFloorMap("HL15-4").subscribe(data => {
       if (data["status"] === "failed") {
-        this.toastController.create({
-          message: data["error"],
-          duration: 3000
-        }).then((toastr) => {
-          toastr.present();
-        });
         return EMPTY;
       } else {
         this.plan = data;

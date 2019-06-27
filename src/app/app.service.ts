@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { ToastController } from '@ionic/angular';
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +18,9 @@ export class AppService {
 
   public darkMode: boolean;
 
-  constructor() {
+  constructor(
+    private toastController: ToastController
+    ) {
    }
 
   setActiveTheme() {
@@ -30,6 +33,16 @@ export class AppService {
       this.activeImage = this.images.light;
 
     }
+  }
+  public showToaster(msg: string, duration: number) {
+    this.toastController.create({
+      message: msg,
+      duration,
+      position: 'top',
+      cssClass: 'margin-top',
+    }).then((toastr) => {
+      toastr.present();
+    });
   }
   public saveDarkModeSettingLocally(bool: boolean) {
     localStorage.setItem("darkMode", bool.toString());
