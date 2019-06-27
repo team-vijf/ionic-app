@@ -30,11 +30,11 @@ export class Tab1Page implements OnInit {
   }
 
   ngOnInit() {
-    this.floorService.getFloorMap("HL15-4").subscribe(data => {
+    this.floorService.getFloorMap("38401322-4fef-4198-b4b1-7bd25c27cac7").subscribe(data => {
       if (data["status"] === "failed") {
         return EMPTY;
       } else {
-        this.plan = data;
+        this.plan = this.sanitizer.bypassSecurityTrustHtml(data["floorplan"]);
       }
     });
   }

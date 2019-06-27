@@ -27,7 +27,7 @@ export class FloorMapComponent implements OnInit {
       this.floorService.getFloor(this.floorId).subscribe(floorData => {
         for (let i = 0; i < floorData.classrooms.length; i++) {
           const element = floorData.classrooms[i];
-          this.setColor(classrooms.namedItem("HL15-4.092"), this.getColor(element));
+          this.setColor(classrooms.namedItem(element.classcode), this.getColor(element));
         }
       });
     }
@@ -53,7 +53,9 @@ export class FloorMapComponent implements OnInit {
     }
   }
   setColor(element: Element, color: string) {
-    element.setAttribute("fill", color);
+    if (element) {
+      element.setAttribute("fill", color);
+    }
   }
 
 }
