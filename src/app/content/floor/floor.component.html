@@ -3,7 +3,7 @@
     <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="Pull to refresh">
     </ion-refresher-content>
   </ion-refresher> -->
-  <ion-card *ngIf="floorService.floor && floorService.floor.classrooms">
+  <ion-card *ngIf="floorService.floor && floorService.floor.classrooms && floorService.floor.classrooms.length > 0">
     <ion-list>
       <ion-list-header>
         <ion-label class="label-link">
@@ -27,7 +27,7 @@
       </ion-item>
     </ion-list>
   </ion-card>
-  <ion-card *ngIf="!floorService.floor || !floorService.floor.classrooms">
+  <ion-card *ngIf="!floorService.floor || !floorService.floor.classrooms || floorService.floor.classrooms.length == 0">
       <ion-card-content>
           {{"F_No_Classrooms_Here" | translate}}
       </ion-card-content>
