@@ -1,8 +1,12 @@
 <ion-content>
-  <!-- <ion-refresher (ionRefresh)="doRefresh($event)">
-    <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="Pull to refresh">
-    </ion-refresher-content>
-  </ion-refresher> -->
+    <app-overlay [(showContent)]="showMap">
+      <app-floor-map [floorId]="floorService.floor.id"></app-floor-map>
+    </app-overlay>
+  <ion-card *ngIf="floorService.floor && floorService.floor.classrooms && floorService.floor.classrooms.length > 0">
+      <ion-card-content>
+          <ion-button (click)="showMapButtonClicked()" expand="block" fill="outline">{{"F_Floorplan" | translate}}</ion-button>
+      </ion-card-content>
+  </ion-card>
   <ion-card *ngIf="floorService.floor && floorService.floor.classrooms && floorService.floor.classrooms.length > 0">
     <ion-list>
       <ion-list-header>

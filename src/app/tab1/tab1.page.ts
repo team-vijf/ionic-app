@@ -15,7 +15,6 @@ import { map } from 'rxjs/operators';
 })
 export class Tab1Page implements OnInit {
 
-  plan: any;
   buildings: Building[];
   buildingId;
   constructor(
@@ -26,17 +25,9 @@ export class Tab1Page implements OnInit {
     private floorService: FloorService
   ) {
     this.buildings = this.route.snapshot.parent.parent.data['buildings'];
-    this.plan = this.route.snapshot.data['floorplan'];
   }
 
   ngOnInit() {
-    this.floorService.getFloorMap("38401322-4fef-4198-b4b1-7bd25c27cac7").subscribe(data => {
-      if (data["status"] === "failed") {
-        return EMPTY;
-      } else {
-        this.plan = this.sanitizer.bypassSecurityTrustHtml(data["floorplan"]);
-      }
-    });
   }
   // public searchForClassrooms() {
   //   const building = this.buildings.find((item) => {

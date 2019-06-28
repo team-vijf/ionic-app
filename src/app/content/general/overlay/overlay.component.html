@@ -1,0 +1,7 @@
+<div *ngIf="showContent" class="full-screen">
+
+</div>
+<ion-icon  *ngIf="showContent" (click)="closeContent()" class="close-button" name="close-circle-outline"></ion-icon>
+<div *ngIf="showContent" class="content">
+    <ng-content ></ng-content>
+</div>

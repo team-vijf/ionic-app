@@ -10,7 +10,7 @@ import { BuildingService } from 'src/app/api/building.service';
   styleUrls: ['./floor.component.scss'],
 })
 export class FloorComponent implements OnInit, OnDestroy {
-
+  showMap = false;
   building: Building;
   private intervalId;
 
@@ -39,6 +39,9 @@ getBuildingAdress() {
 onClick(classcode: string) {
   clearInterval(this.intervalId);
   this.router.navigate(["app", "classroom", classcode]);
+}
+showMapButtonClicked() {
+  this.showMap = !this.showMap;
 }
 // doRefresh(event) {
 //   this.floorService.getFloor(this.floor.id).subscribe((data) => {

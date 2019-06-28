@@ -1,0 +1,29 @@
+.full-screen {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    opacity: 0.6;
+    background-color: black;
+    z-index: 99999;
+}
+.close-button {
+    z-index: 100001;
+    position:absolute;
+    top:0;
+    right:0;
+    font-size: 45px;
+    margin: 10px;
+    cursor: pointer;
+    color: white;
+  }
+@media only screen and (max-width: 600px) {
+    .content {
+        z-index: 100000;
+        position: fixed;
+        transform: translate(0, 24vh) rotate(90deg) scale(1.6);
+    }
+  }
+.content {
+    z-index: 100000;
+    position: absolute;
+}

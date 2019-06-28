@@ -52,7 +52,8 @@ export const dutchTranslation = {
     "F_No_Buildings_Here" : "Er zijn nog geen gebouwen. kijk hier later nog eens!",
     "F_No_Floors_Here" : "Er zijn geen verdiepingen voor dit gebouw... vreemd.",
     "F_No_Classrooms_Here" : "Geen klaslokalen op deze verdieping",
-    "F_NoClassrooms" : "Geen klaslokalen"
+    "F_NoClassrooms" : "Geen klaslokalen",
+    "F_Floorplan" : "Plattegrond"
   }
 };
 export const englishTranslation = {
@@ -79,6 +80,7 @@ export const englishTranslation = {
     "F_No_Buildings_Here" : "There are no buildings here, check back later!",
     "F_No_Floors_Here" : "There are no floors known for this building... weird.",
     "F_No_Classrooms_Here" : "No Classrooms on this floor.",
-    "F_NoClassrooms" : "No classrooms"
+    "F_NoClassrooms" : "No classrooms",
+    "F_Floorplan" : "Floorplan"
   }
 };

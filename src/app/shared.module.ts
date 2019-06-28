@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';
 import { TranslatePipe } from './content/pipes/translate.pipe';
 import { FloorMapComponent } from './content/floor-map/floor-map.component';
+import { OverlayComponent } from './content/general/overlay/overlay.component';
+import { CommonModule } from '@angular/common';
+import { IonicModule } from '@ionic/angular';
 
 
 @NgModule({
@@ -8,14 +11,18 @@ import { FloorMapComponent } from './content/floor-map/floor-map.component';
     TranslatePipe
   ],
   imports: [
+    CommonModule,
+    IonicModule.forRoot()
   ],
   exports: [
     TranslatePipe,
-    FloorMapComponent
+    FloorMapComponent,
+    OverlayComponent
   ],
   declarations: [
     TranslatePipe,
-    FloorMapComponent
+    FloorMapComponent,
+    OverlayComponent
   ]
 })
 export class SharedModule {}
