@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  dataUrl: "https://sslapi.arjen.io/public",
+  requestAccessUrl: "https://sslapi.arjen.io/access/private"
 };
 
 /*

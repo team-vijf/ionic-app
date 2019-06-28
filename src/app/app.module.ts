@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, APP_INITIALIZER } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
 
@@ -13,12 +13,15 @@ import { BuildingResolverService } from './resolver/building-resolver-service';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptor } from './api/http-interceptor';
 import { SharedModule } from './shared.module';
+import { InitializationService } from './api/initialization.service';
+import { HttpModule } from '@angular/http';
 @NgModule({
   declarations: [
     AppComponent
   ],
   entryComponents: [],
   imports: [
+    HttpModule,
     BrowserModule,
     HttpClientModule,
     IonicModule.forRoot(),
@@ -28,6 +31,14 @@ import { SharedModule } from './shared.module';
   providers: [
     StatusBar,
     SplashScreen,
+    {
+      provide: APP_INITIALIZER,
+      useFactory: (initializationService: InitializationService) =>
+          () => initializationService.initApp(),
+      deps: [InitializationService],
+      multi: true
+  },
+  InitializationService,
     BuildingService,
     BuildingResolverService,
     {

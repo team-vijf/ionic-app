@@ -5,16 +5,19 @@ import {
   HttpEvent,
   HttpInterceptor
 } from '@angular/common/http';
-import { token } from './token';
 import { Observable } from 'rxjs';
+import { InitializationService } from './initialization.service';
 
 @Injectable()
 export class TokenInterceptor implements HttpInterceptor {
 
-  constructor() {}
+  constructor(
+    private api: InitializationService
+  ) {}
 
-  private token = token; // read from a file in gitignore, looks like: export const token = '...';
+  private token = this.api.token; // read from a file in gitignore, looks like: export const token = '...';
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+    console.log(this.api.token);
     const req = request.clone({
         setHeaders: {"X-API-KEY" : this.token},
     });
