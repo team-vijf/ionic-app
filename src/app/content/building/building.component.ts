@@ -14,7 +14,7 @@ export class BuildingComponent implements OnInit, OnDestroy {
   intervalId;
 
   constructor(private route: ActivatedRoute,
-    private buildingService: BuildingService,
+    public buildingService: BuildingService,
     private router: Router) { }
 
   ngOnInit() {
