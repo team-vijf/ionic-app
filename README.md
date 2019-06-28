@@ -2,4 +2,5 @@
 https://hub.docker.com/r/projectdevices/webapp
 
 Easy run the container:
-Docker run -p 80:80 projectdevices/webapp
+
+docker run -d -p 80:80 projectdevices/webapp
