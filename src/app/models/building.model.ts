@@ -1,9 +1,9 @@
 import { Floor } from './floor.model';
 
 export class Building {
-    id: String;
-    name: String;
-    streetname: String;
-    buildingnumber: String;
+    id: string;
+    name: string;
+    streetname: string;
+    buildingnumber: number;
     floors: Floor[];
 }

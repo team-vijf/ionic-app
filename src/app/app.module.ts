@@ -13,15 +13,12 @@ import { BuildingResolverService } from './resolver/building-resolver-service';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptor } from './api/http-interceptor';
 import { SharedModule } from './shared.module';
-import { InitializationService } from './api/initialization.service';
-import { HttpModule } from '@angular/http';
 @NgModule({
   declarations: [
     AppComponent
   ],
   entryComponents: [],
   imports: [
-    HttpModule,
     BrowserModule,
     HttpClientModule,
     IonicModule.forRoot(),
@@ -31,14 +28,6 @@ import { HttpModule } from '@angular/http';
   providers: [
     StatusBar,
     SplashScreen,
-    {
-      provide: APP_INITIALIZER,
-      useFactory: (initializationService: InitializationService) =>
-          () => initializationService.initApp(),
-      deps: [InitializationService],
-      multi: true
-  },
-  InitializationService,
     BuildingService,
     BuildingResolverService,
     {

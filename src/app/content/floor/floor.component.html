@@ -11,12 +11,12 @@
     <ion-list>
       <ion-list-header>
         <ion-label class="label-link">
-          {{floorService.floor.floornumber === 0 ? ("F_Ground_Floor" | translate) : (floorService.floor.floornumber | ordinalNumberSuffix) + " " + ("F_Floor_Of" | translate) }}
-          {{buildingService.building.streetname + " " + buildingService.building.buildingnumber}}
+          {{ getFloorName() }}
+          {{ getBuildingAdress()}}
         </ion-label>
       </ion-list-header>
       <ion-item class="ion-activatable" *ngFor="let classroom of floorService.floor.classrooms"
-        (click)="onClick(classroom.classcode)" [ngSwitch]="classroom.free">
+        (click)="goToClassroomView(classroom.classcode)" [ngSwitch]="classroom.free">
         <ion-ripple-effect></ion-ripple-effect>
         <ion-label class="label-link">{{classroom.classcode}}</ion-label>
         <ion-label class="free" *ngSwitchCase="true" >

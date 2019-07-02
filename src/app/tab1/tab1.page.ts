@@ -16,7 +16,7 @@ import { map } from 'rxjs/operators';
 export class Tab1Page implements OnInit {
 
   buildings: Building[];
-  buildingId;
+  floorUuid: string;
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -25,6 +25,17 @@ export class Tab1Page implements OnInit {
     private floorService: FloorService
   ) {
     this.buildings = this.route.snapshot.parent.parent.data['buildings'];
+    for (let i = 0; i < this.buildings.length; i++) {
+      const building = this.buildings[i];
+      if (building.streetname === "Heidelberglaan" && building.buildingnumber === 15) {
+        for (let i = 0; i < building.floors.length; i++) {
+          const floor = building.floors[i];
+          if (floor.floornumber === 4) {
+            this.floorUuid = floor.id;
+          }
+        }
+      }
+    }
   }
 
   ngOnInit() {
@@ -36,9 +47,7 @@ export class Tab1Page implements OnInit {
   // const classroom = this.findFirstAvailibleRoom(building);
   // this.router.navigate(["app", "classroom", classroom.classcode]);
   // }
-  public routeToBuildingPage() {
-    this.router.navigate(["app", "buildings", this.buildingId]);
-  }
+
 
   // private findFirstAvailibleRoom(building: Building): Classroom {
   //   for (let i = 0; i < building.floors.length; i++) {
